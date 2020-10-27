@@ -1,4 +1,3 @@
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -10,10 +9,10 @@ import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class SizeTest {
+public class NotEmptyDtoTest {
 
     Validator validator;
-    Set<ConstraintViolation<SizeDto>> vioations;
+    Set<ConstraintViolation<NotEmptyDto>> vioations;
 
     @BeforeEach
     void setup() {
@@ -23,11 +22,11 @@ public class SizeTest {
 
     @Test
     void test() {
-        SizeDto dto = new SizeDto();
+        NotEmptyDto dto = new NotEmptyDto();
 
         dto.setName(null);
         vioations = validator.validate(dto);
-        assertEquals(0, vioations.size());
+        assertEquals(1, vioations.size());
 
         dto.setName("");
         vioations = validator.validate(dto);
@@ -35,22 +34,6 @@ public class SizeTest {
 
         dto.setName(" ");
         vioations = validator.validate(dto);
-        assertEquals(1, vioations.size());
-
-        dto.setName("1");
-        vioations = validator.validate(dto);
-        assertEquals(1, vioations.size());
-
-        dto.setName("12");
-        vioations = validator.validate(dto);
-        assertEquals(1, vioations.size());
-
-        dto.setName("123");
-        vioations = validator.validate(dto);
         assertEquals(0, vioations.size());
-
-        dto.setName("1234");
-        vioations = validator.validate(dto);
-        assertEquals(1, vioations.size());
     }
 }

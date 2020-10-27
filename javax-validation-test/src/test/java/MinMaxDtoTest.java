@@ -9,10 +9,10 @@ import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class NotNullTest {
+public class MinMaxDtoTest {
 
     Validator validator;
-    Set<ConstraintViolation<NotNullDto>> vioations;
+    Set<ConstraintViolation<MinMaxDto>> vioations;
 
     @BeforeEach
     void setup() {
@@ -22,18 +22,16 @@ public class NotNullTest {
 
     @Test
     void test() {
-        NotNullDto dto = new NotNullDto();
+        MinMaxDto dto = new MinMaxDto();
 
-        dto.setName(null);
-        vioations = validator.validate(dto);
-        assertEquals(1, vioations.size());
-
-        dto.setName("");
-        vioations = validator.validate(dto);
-        assertEquals(0, vioations.size());
-
-        dto.setName(" ");
-        vioations = validator.validate(dto);
-        assertEquals(0, vioations.size());
+        for (int i = 9; i < 21; i++) {
+            dto.setNum(i);
+            vioations = validator.validate(dto);
+            if (i == 9 || i == 21) {
+                assertEquals(1, vioations.size());
+            } else {
+                assertEquals(0, vioations.size());
+            }
+        }
     }
 }
