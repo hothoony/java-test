@@ -17,6 +17,12 @@ public class ProfileTestApplication {
     @Value("${my.server.port}")
     private int myServerPort;
 
+    @Value("${my.noprofile.value.in.properties}")
+    private String noProfileValueInProp;
+
+    @Value("${my.noprofile.value.in.yml}")
+    private String noProfileValueInYml;
+
     public static void main(String[] args) {
         SpringApplication.run(ProfileTestApplication.class, args);
     }
@@ -26,6 +32,8 @@ public class ProfileTestApplication {
         return args -> {
             System.out.println("myServerUrl = " + myServerUrl);
             System.out.println("myServerPort = " + myServerPort);
+            System.out.println("noProfileValueInProp = " + noProfileValueInProp);
+            System.out.println("noProfileValueInYml = " + noProfileValueInYml);
         };
     }
 
