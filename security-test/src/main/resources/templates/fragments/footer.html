@@ -1,0 +1,24 @@
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity">
+
+    <div th:fragment="goto-index">
+        <hr>
+        <a th:href="@{'/'}">go to index</a>
+    </div>
+
+    <div th:fragment="login-out">
+        <hr>
+        <div sec:authorize="isAuthenticated()">
+            <span th:text="${session.name}"></span> logged in.
+            <form method="post" action="/logout">
+                <button type="submit">logout</button>
+            </form>
+        </div>
+        <div sec:authorize="isAnonymous()">
+            <a href="/login">login</a> /
+            <a href="/signup">signup</a><br/>
+        </div>
+    </div>
+
+</html>

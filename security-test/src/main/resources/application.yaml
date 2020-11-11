@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:tcp://localhost/~/security-test
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+#  mvc:
+#    static-path-pattern: /static/**/*
+#  resources:
+#    static-locations: classpath:/static/
+logging:
+  level:
+    org.hibernate.SQL: debug
+#    org.springframework: debug
+    org.springframework.web: debug
+    org.springframework.security: debug

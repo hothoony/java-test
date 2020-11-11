@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:include="fragments/header :: css"/>
+</head>
+<body>
+<h1>로그아웃 처리되었습니다.</h1>
+
+<th:block th:insert="fragments/footer :: login-out"/>
+<th:block th:insert="fragments/footer :: goto-index"/>
+</body>
+</html>
