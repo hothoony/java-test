@@ -1,11 +1,15 @@
 
+# profile default
 spring:
   profiles:
     active:
-my.server.config.description: config is default
+my.server.desc: config is default
+my.server.host: default host
 ---
-spring:
-  config:
-    activate:
-      on-profile: local
-my.server.config.description: config is local
+# profile local
+#spring:
+#  config:
+#    activate:
+#      on-profile: local
+my.server.desc: config is local
+my.server.host: local host
