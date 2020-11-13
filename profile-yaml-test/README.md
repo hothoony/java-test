@@ -1,4 +1,4 @@
-#### src/main/resources 폴더 구성
+### src/main/resources 폴더 구성
     src/main
         /resources
             application.yaml
@@ -7,7 +7,7 @@
         /resources-prod
             application.yaml
 
-#### build.gradle 설정 추가
+### build.gradle 설정 추가
     ext.profile = (!project.hasProperty('profile') || !profile) ? 'local' : profile
     
     sourceSets {
@@ -18,5 +18,5 @@
         }
     }
 
-#### profile 별 gradle build 방법
+### profile 별 gradle build 방법
     ./gradlew clean build -Pprofile=dev
