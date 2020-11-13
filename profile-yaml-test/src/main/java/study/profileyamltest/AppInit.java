@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 //@Profile("local")
 public class AppInit {
 
-//    @Value("${my.server.desc}")
+    @Value("${my.server.desc}")
     private String myServerDesc;
 
     @Value("${my.server.host}")
