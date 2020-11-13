@@ -1,0 +1,11 @@
+
+spring:
+  profiles:
+    active:
+my.server.config.description: config is default
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+my.server.config.description: config is local
