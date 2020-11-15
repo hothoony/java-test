@@ -48,7 +48,7 @@
      =========|_|==============|___/=/_/_/_/
      :: Spring Boot ::                (v2.4.0)
     
-    2020-11-15 18:11:00.074  INFO 10803 --- [           main] s.s.SpringBootInitMethodTestApplication  : Starting SpringBootInitMethodTestApplication using Java 11.0.8 on MacBookPro.local with PID 10803 (/Users/hothoony/study/study-practice/java-spring-test/spring-boot-init-method-test/build/classes/java/main started by hothoony in /Users/hothoony/study/study-practice/java-spring-test/spring-boot-init-method-test)
+    2020-11-15 18:11:00.074  INFO 10803 --- [           main] s.s.SpringBootInitMethodTestApplication  : Starting SpringBootInitMethodTestApplication using Java 11.0.8 on MacBookPro.local with PID 10803
     2020-11-15 18:11:00.076  INFO 10803 --- [           main] s.s.SpringBootInitMethodTestApplication  : No active profile set, falling back to default profiles: default
     
     MyPostConstruct
