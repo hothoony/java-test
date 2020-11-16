@@ -34,10 +34,25 @@
         }
     }
 
+### MyCommandLineRunner2.java
+    @Component
+    public class MyCommandLineRunner2 {
+    
+        @Bean
+        public CommandLineRunner run() {
+            return args -> {
+                System.out.println();
+                System.out.println("MyCommandLineRunner2");
+                System.out.println();
+            };
+        }
+    }
+
 ### 실행 순서
     MyPostConstruct
     MyApplicationRunner
     MyCommandLineRunner
+    MyCommandLineRunner2
 
 ### 로그
       .   ____          _            __ _ _
@@ -58,3 +73,5 @@
     MyApplicationRunner
     
     MyCommandLineRunner
+    
+    MyCommandLineRunner2
