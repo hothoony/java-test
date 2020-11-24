@@ -14,25 +14,25 @@
 
 - ### Oracle
         oracle.jdbc.driver.OracleDriver
-        jdbc:oracle:thin:@localhost:1521/orclcdb
+        jdbc:oracle:thin:@dbhost:1521/orclcdb
         mytestdb / test!234
         org.hibernate.dialect.Oracle12cDialect
 
 - ### MySql
         com.mysql.cj.jdbc.Driver
-        jdbc:mysql://localhost:3306/mytestdb
+        jdbc:mysql://dbhost:3306/mytestdb
         root / test!234
         org.hibernate.dialect.MySQL8Dialect
 
 - ### MariaDB
         org.mariadb.jdbc.Driver
-        jdbc:mariadb://localhost:3306/mytestdb
+        jdbc:mariadb://dbhost:3306/mytestdb
         root / test!234
         org.hibernate.dialect.MariaDB103Dialect
 
 - ### Postgresql
         org.postgresql.Driver
-        jdbc:postgresql://localhost:5432/mytestdb
+        jdbc:postgresql://dbhost:5432/mytestdb
         postgres / test!234
         org.hibernate.dialect.PostgreSQL10Dialect
 
