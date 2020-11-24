@@ -3,7 +3,7 @@ my.db.config: mariadb
 spring:
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://localdbhost:3306/mytestdb
+    url: jdbc:mariadb://dbhost:3306/mytestdb
     username: root
     password: test!234
   jpa:

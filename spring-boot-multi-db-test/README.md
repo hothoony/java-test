@@ -38,6 +38,6 @@
 
 - ### MSSQL
         com.microsoft.sqlserver.jdbc.SQLServerDriver
-        jdbc:sqlserver://localdbhost:1433;databaseName=mytestdb
+        jdbc:sqlserver://dbhost:1433;databaseName=mytestdb
         sa / test!234
         org.hibernate.dialect.SQLServer2012Dialect

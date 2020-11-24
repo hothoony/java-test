@@ -3,7 +3,7 @@ my.db.config: mysql
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localdbhost:3306/mytestdb
+    url: jdbc:mysql://dbhost:3306/mytestdb
     username: root
     password: test!234
   jpa:

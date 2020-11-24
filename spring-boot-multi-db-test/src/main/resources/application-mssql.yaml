@@ -3,7 +3,7 @@ my.db.config: mssql
 spring:
   datasource:
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-    url: jdbc:sqlserver://localdbhost:1433;databaseName=mytestdb
+    url: jdbc:sqlserver://dbhost:1433;databaseName=mytestdb
     username: sa
     password: test!234
   jpa:

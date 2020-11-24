@@ -3,7 +3,7 @@ my.db.config: postgresql
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localdbhost:5432/mytestdb
+    url: jdbc:postgresql://dbhost:5432/mytestdb
     username: postgres
     password: test!234
   jpa:
