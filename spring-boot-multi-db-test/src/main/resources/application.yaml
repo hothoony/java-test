@@ -2,7 +2,7 @@ my.conf1: 111
 ---
 my.conf2: 222
 spring:
-  profiles.active: mssql
+  profiles.active: h2
   jpa:
     open-in-view: false
     hibernate:
