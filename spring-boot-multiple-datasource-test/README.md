@@ -1,3 +1,7 @@
+### build.gradle
+    runtimeOnly 'com.oracle.ojdbc:ojdbc8'
+    runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
+
 ### application.yaml
     member:
       datasource:
