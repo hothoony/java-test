@@ -1,14 +1,16 @@
-package study.springbootlogbacktest.logging;
+package study.springbootlogbacktest;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+import study.springbootlogbacktest.logging.MyRepository;
+import study.springbootlogbacktest.logging.MyService;
 
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class MyCommandLineRunner implements CommandLineRunner {
+public class AppInit implements CommandLineRunner {
 
     private final MyService myService;
     private final MyRepository myRepository;
@@ -23,7 +25,7 @@ public class MyCommandLineRunner implements CommandLineRunner {
 
     private void logTest() {
         System.out.println();
-        System.out.println("MyCommandLineRunner");
+        System.out.println("AppInit");
 
         log.trace("trace message 1");
         log.trace("trace message 2 {}", "aa");
