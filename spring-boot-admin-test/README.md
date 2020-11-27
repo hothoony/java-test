@@ -1,7 +1,7 @@
-># github spring-boot-admin
+>## github spring-boot-admin
     https://github.com/codecentric/spring-boot-admin
 
-># admin-server
+>## admin-server
 ### build.gradle
     implementation 'de.codecentric:spring-boot-admin-starter-server:2.3.1'
     implementation 'org.springframework.boot:spring-boot-starter-web'
@@ -15,7 +15,7 @@
 ### admin 실행
     htp://localhost:8080
 
-># admin-client-1
+>## admin-client-1
 ### build.gradle
     implementation 'de.codecentric:spring-boot-admin-starter-client:2.3.1'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
