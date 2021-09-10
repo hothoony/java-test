@@ -7,16 +7,16 @@ import java.util.stream.Stream;
 
 public class test_map_flatmap {
 
+    Integer[][] list = {{1, 2}, {3, 4}};
+    
     @Test
     void map() {
-        Integer[][] list = {{1, 2}, {3, 4}};
         Stream<Stream<Integer>> stream = Arrays.stream(list).map(x -> Arrays.stream(x));
         stream.forEach(s -> s.forEach(System.out::println));
     }
 
     @Test
     void flatmap() {
-        Integer[][] list = {{1, 2}, {3, 4}};
         Stream<Integer> stream = Arrays.stream(list).flatMap(x -> Arrays.stream(x));
         stream.forEach(System.out::println);
     }

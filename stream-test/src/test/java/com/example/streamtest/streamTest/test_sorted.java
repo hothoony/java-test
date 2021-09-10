@@ -11,13 +11,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class test_sorted {
 
+    List<String> list = Arrays.asList(
+            "candy", "zebra", "zoo", "banana", "apple"
+    );
+
     @Test
     void test_sorted_ascending() {
-        List<String> list = Arrays.asList(
-                "candy", "zebra", "zoo", "banana", "apple"
-        );
-
-        System.out.println("list = " + list);
+        System.out.println("list   = " + list);
 
         List<String> result = list.stream()
                 .sorted((o1, o2) -> o1.compareTo(o2))
@@ -28,11 +28,7 @@ public class test_sorted {
 
     @Test
     void test_sorted_descending() {
-        List<String> list = Arrays.asList(
-                "candy", "zebra", "zoo", "banana", "apple"
-        );
-
-        System.out.println("list = " + list);
+        System.out.println("list   = " + list);
 
         Comparator<String> comparator = (o1, o2) -> o1.compareTo(o2);
 

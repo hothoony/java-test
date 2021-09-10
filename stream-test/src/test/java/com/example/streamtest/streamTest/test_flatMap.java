@@ -11,13 +11,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class test_flatMap {
 
+    List<List<String>> list = Arrays.asList(
+            Arrays.asList("11", "12"),
+            Arrays.asList("21", "22"),
+            Arrays.asList("31", "32")
+    );
+    
     @Test
     void test_flatMap() {
-        List<List<String>> list = Arrays.asList(
-                Arrays.asList("11", "12"),
-                Arrays.asList("21", "22"),
-                Arrays.asList("31", "32")
-        );
 
         System.out.println("list = " + list);
 

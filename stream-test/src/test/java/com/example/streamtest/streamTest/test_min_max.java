@@ -12,10 +12,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class test_min_max {
 
+    List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
     @Test
     void test_min_max() {
-        List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
-
         System.out.println("list = " + list);
 
         Optional<Integer> min = list.stream().min(Comparator.comparing(Integer::valueOf));

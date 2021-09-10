@@ -10,9 +10,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class test_filter {
 
+    List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+    
     @Test
     void test_filter() {
-        List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
         System.out.println("list = " + list);
 
