@@ -7,18 +7,28 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
-public class test_min_max {
-
-    List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+public class test_all {
+    
+    List<Integer> list = Arrays.asList(3, 2, 1, 5, 4);
 
     @Test
-    void test_min_max() {
-        System.out.println("list = " + list);
+    void count() {
+        long count = list.stream().count();
+        System.out.println("count = " + count);
+    }
 
+    @Test
+    void min_max() {
         Optional<Integer> min = list.stream().min(Comparator.comparing(Integer::valueOf));
         System.out.println("min.get() = " + min.get());
 
         Optional<Integer> max = list.stream().max(Comparator.comparing(Integer::valueOf));
         System.out.println("max.get() = " + max.get());
+    }
+
+    @Test
+    void sum() {
+        Integer sum = list.stream().reduce(0, Integer::sum);
+        System.out.println("sum = " + sum);
     }
 }

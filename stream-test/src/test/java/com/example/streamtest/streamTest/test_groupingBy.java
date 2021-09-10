@@ -1,6 +1,6 @@
 package com.example.streamtest.streamTest;
 
-import lombok.Getter;
+import com.example.streamtest.dto.MemberDto;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -28,22 +28,4 @@ public class test_groupingBy {
         map.keySet().forEach(key -> System.out.println(key + " => " + map.get(key)));
     }
     
-    @Getter
-    static class MemberDto {
-        private int id;
-        private String name;
-
-        public MemberDto(int id, String name) {
-            this.id = id;
-            this.name = name;
-        }
-
-        @Override
-        public String toString() {
-            return "MemberDto{" +
-                    "id=" + id +
-                    ", name='" + name + '\'' +
-                    '}';
-        }
-    }
 }

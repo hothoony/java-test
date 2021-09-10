@@ -7,8 +7,6 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 public class test_sorted {
 
     List<String> list = Arrays.asList(
