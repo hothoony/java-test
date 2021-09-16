@@ -8,16 +8,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 public class null_empty_blank {
 
     @Test
-    void null_notNull() {
-        String str1 = null;
-        String str2 = "";
-
-        assertThat(str1).isNull();
-        assertThat(str2).isNotNull();
-    }
-
-    @Test
-    void test_null() {
+    void isNull() {
         String str = null;
 
         assertThat(str).isNull();
@@ -27,7 +18,7 @@ public class null_empty_blank {
     }
 
     @Test
-    void test_empty() {
+    void isEmpty() {
         String str = "";
 
         assertThat(str).isNotNull();
@@ -36,7 +27,7 @@ public class null_empty_blank {
     }
 
     @Test
-    void test_blank() {
+    void isBlank() {
         String str = " ";
 
         assertThat(str).isNotNull();
@@ -45,11 +36,12 @@ public class null_empty_blank {
     }
 
     @Test
-    void test_notBlank() {
+    void isNotBlank() {
         String str = ".";
 
         assertThat(str).isNotNull();
         assertThat(str).isNotEmpty();
         assertThat(str).isNotBlank();
     }
+    
 }
