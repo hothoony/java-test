@@ -1,9 +1,9 @@
-package com.example.junit5example;
+package com.example.junit5example.junit5;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-public class ParameterizedTests {
+public class ParameterTest_ValueSource {
 
     @ParameterizedTest
     @ValueSource(ints = {1, 2, 3, 4, 5})
