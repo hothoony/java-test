@@ -40,7 +40,8 @@ public class list_test {
         assertThat(list).extracting("name").contains("spring", "java");
     }
 
-    class Model {
+    static class Model {
+        
         private int id;
         private String name;
 

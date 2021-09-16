@@ -43,4 +43,13 @@ public class null_empty_blank {
         assertThat(str).isNotEmpty();
         assertThat(str).isBlank();
     }
+
+    @Test
+    void test_notBlank() {
+        String str = ".";
+
+        assertThat(str).isNotNull();
+        assertThat(str).isNotEmpty();
+        assertThat(str).isNotBlank();
+    }
 }
