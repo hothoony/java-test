@@ -18,6 +18,7 @@ public class weekday_weekend {
             System.out.print(" " + rpad(localDateTime.getDayOfWeek(), 9));
             System.out.print(" WEEKDAY=" + rpad(LocalDateTimeUtil.isWeekday(localDateTime), 5));
             System.out.print(" WEEKEND=" + rpad(LocalDateTimeUtil.isWeekend(localDateTime), 5));
+            System.out.print(" WEEKEND=" + rpad(LocalDateTimeUtil.isWeekendByValue(localDateTime), 5));
             System.out.println();
             LocalDateTimeUtil.isWeekend(localDateTime);
             localDateTime = localDateTime.plusDays(1);
