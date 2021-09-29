@@ -44,4 +44,18 @@ public class LocalDateTimeTest {
         dateTime = LocalDateTime.of(2021, 9, 24, 0, 0, 0, 0);
         System.out.println("dateTime = " + dateTime);
     }
+
+    @Test
+    void format() {
+        String result;
+        
+        result = DateTimeFormatter.ofPattern("yyyyMM").format(LocalDateTime.now());
+        System.out.println("result = " + result);
+
+        result = DateTimeFormatter.ofPattern("yyyyMMdd").format(LocalDateTime.now());
+        System.out.println("result = " + result);
+
+        result = DateTimeFormatter.ofPattern("HHmmss").format(LocalDateTime.now());
+        System.out.println("result = " + result);
+    }
 }
