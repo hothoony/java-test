@@ -1,4 +1,4 @@
-package study.localdatetimetest.localdatetime;
+package study.localdatetimetest.localdate;
 
 import org.junit.jupiter.api.Test;
 
