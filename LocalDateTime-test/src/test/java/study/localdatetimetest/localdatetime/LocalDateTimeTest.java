@@ -24,10 +24,16 @@ public class LocalDateTimeTest {
     void parse() {
         LocalDateTime dateTime = null;
         
-        dateTime = LocalDateTime.parse("2021-09-24 00:00:00", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        dateTime = LocalDateTime.parse("2021-09-24 12:34", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+        System.out.println("dateTime = " + dateTime);
+        
+        dateTime = LocalDateTime.parse("2021-09-24 12:34:56", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         System.out.println("dateTime = " + dateTime);
 
-        dateTime = LocalDateTime.parse("2021-09-24 00:00", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+        dateTime = LocalDateTime.parse("2021-09-24 12:34:56.789", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS"));
+        System.out.println("dateTime = " + dateTime);
+
+        dateTime = LocalDateTime.parse("2021-09-24 12:34:56.789012", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSSSSS"));
         System.out.println("dateTime = " + dateTime);
     }
 
