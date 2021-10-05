@@ -28,7 +28,7 @@ public class FutureOrPresentTest {
                 .build();
         System.out.println("pastPresentFutureDto = " + pastPresentFutureDto);
 
-        hasNoError(pastPresentFutureDto, validator);
+        hasError(pastPresentFutureDto, validator);
     }
 
     @Test
@@ -48,7 +48,7 @@ public class FutureOrPresentTest {
                 .build();
         System.out.println("pastPresentFutureDto = " + pastPresentFutureDto);
 
-        hasError(pastPresentFutureDto, validator);
+        hasNoError(pastPresentFutureDto, validator);
     }
 
 }

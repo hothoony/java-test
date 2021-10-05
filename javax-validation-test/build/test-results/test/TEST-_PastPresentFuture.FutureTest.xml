@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="_PastPresentFuture.FutureTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-10-05T16:12:16" hostname="hothoonyui-MacBookPro.local" time="0.153">
+  <properties/>
+  <testcase name="yesterday()" classname="_PastPresentFuture.FutureTest" time="0.018"/>
+  <testcase name="tomorrow()" classname="_PastPresentFuture.FutureTest" time="0.014"/>
+  <testcase name="today()" classname="_PastPresentFuture.FutureTest" time="0.113"/>
+  <system-out><![CDATA[pastPresentFutureDto = FutureDto(localDate=2021-10-05)
+미래 날짜여야 합니다
+2021-10-05
+pastPresentFutureDto = FutureDto(localDate=2021-10-07)
+pastPresentFutureDto = FutureDto(localDate=2021-10-06)
+미래 날짜여야 합니다
+2021-10-06
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
