@@ -5,6 +5,7 @@ import javax.validation.constraints.NotNull;
 
 @Getter @Setter
 public class NotNullDto {
+    
     @NotNull
     private String name;
 }
