@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="MinMaxDtoTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-10-05T09:02:12" hostname="ingpdev-iMac.local" time="0.03">
+<testsuite name="MinMaxDtoTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-10-05T16:12:16" hostname="hothoonyui-MacBookPro.local" time="0.029">
   <properties/>
-  <testcase name="test()" classname="MinMaxDtoTest" time="0.03"/>
+  <testcase name="test()" classname="MinMaxDtoTest" time="0.029"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

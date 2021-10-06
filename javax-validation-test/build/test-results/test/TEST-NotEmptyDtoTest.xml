@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="NotEmptyDtoTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-10-05T09:02:12" hostname="ingpdev-iMac.local" time="0.01">
+<testsuite name="NotEmptyDtoTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-10-05T16:12:15" hostname="hothoonyui-MacBookPro.local" time="0.376">
   <properties/>
-  <testcase name="test()" classname="NotEmptyDtoTest" time="0.01"/>
+  <testcase name="test()" classname="NotEmptyDtoTest" time="0.376"/>
   <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
+  <system-err><![CDATA[10월 06, 2021 1:12:15 오전 org.hibernate.validator.internal.util.Version <clinit>
+INFO: HV000001: Hibernate Validator 6.2.0.Final
+]]></system-err>
 </testsuite>

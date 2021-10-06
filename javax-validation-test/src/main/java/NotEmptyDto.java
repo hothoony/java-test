@@ -6,6 +6,7 @@ import javax.validation.constraints.NotNull;
 
 @Getter @Setter
 public class NotEmptyDto {
+    
     @NotEmpty
     private String name;
 }

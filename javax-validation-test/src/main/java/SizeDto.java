@@ -7,6 +7,7 @@ import javax.validation.constraints.Size;
 
 @Getter @Setter
 public class SizeDto {
+    
     @Size(min = 3, max = 3)
     private String name;
 }
