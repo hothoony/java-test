@@ -54,14 +54,20 @@ public class LocalDateTimeTest {
     @Test
     void format() {
         String result;
+
+        result = DateTimeFormatter.ofPattern("yyyy").format(LocalDateTime.now());
+        System.out.println("result = " + result);
         
-        result = DateTimeFormatter.ofPattern("yyyyMM").format(LocalDateTime.now());
+        result = DateTimeFormatter.ofPattern("yyyy-MM").format(LocalDateTime.now());
         System.out.println("result = " + result);
 
-        result = DateTimeFormatter.ofPattern("yyyyMMdd").format(LocalDateTime.now());
+        result = DateTimeFormatter.ofPattern("yyyy-MM-dd").format(LocalDateTime.now());
         System.out.println("result = " + result);
 
-        result = DateTimeFormatter.ofPattern("HHmmss").format(LocalDateTime.now());
+        result = DateTimeFormatter.ofPattern("HH:mm:ss.SSSSSS").format(LocalDateTime.now());
+        System.out.println("result = " + result);
+
+        result = DateTimeFormatter.ofPattern("HH:mm:ss.SSSSSSSSS").format(LocalDateTime.now());
         System.out.println("result = " + result);
     }
 }
