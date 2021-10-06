@@ -9,7 +9,7 @@ import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class NotNullDtoTest {
+public class NotNullTest {
 
     Validator validator;
     Set<ConstraintViolation<NotNullDto>> vioations;

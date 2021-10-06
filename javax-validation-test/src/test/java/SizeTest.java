@@ -10,7 +10,7 @@ import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class SizeDtoTest {
+public class SizeTest {
 
     Validator validator;
     Set<ConstraintViolation<SizeDto>> vioations;

@@ -7,7 +7,7 @@ import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class NotBlankDtoTest {
+public class NotBlankTest {
 
     Validator validator;
     Set<ConstraintViolation<NotBlankDto>> vioations;
