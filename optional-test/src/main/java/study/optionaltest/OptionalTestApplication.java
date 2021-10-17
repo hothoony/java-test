@@ -1,4 +1,4 @@
-package com.example.optionaltest;
+package study.optionaltest;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
