@@ -186,7 +186,7 @@ go to [google](http://www.google.com)
 
 link with title [google](http://www.google.com "click~~")
 
-## URL, Email Address
+## URL, Email
 ```
 <http://www.google.com>
 
