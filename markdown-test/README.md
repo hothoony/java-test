@@ -43,6 +43,17 @@ Heading level 2
 ---------------
 
 ## Paragraph
+```
+this is first paragraph
+this is first paragraph
+this is first paragraph
+this is first paragraph
+
+this is second paragraph
+this is second paragraph
+this is second paragraph
+this is second paragraph
+```
 this is first paragraph
 this is first paragraph
 this is first paragraph
@@ -56,17 +67,21 @@ this is second paragraph
 ## Bold
 ```
 This is **bold text** in line1.
+
 This is __bold text__ in line2.
 ```
 This is **bold text** in line1.
+
 This is __bold text__ in line2.
 
 ## Italic
 ```
 This is *italic text* in line1.
+
 This is _italic text_ in line2.
 ```
 This is *italic text* in line1.
+
 This is _italic text_ in line2.
 
 ## Blockquotes
