@@ -1,0 +1,11 @@
+- ### Singleton Pattern
+- ### Template Method Pattern
+- ### Template Callback Pattern
+- ### Proxy Pattern
+  - #### 접근을 제어 
+  - #### target 을 가지고 있다
+  - #### target 을 항상 호출하지 않는다
+- ### Decorator Pattern
+  - #### 부가 기능을 추가 
+  - #### target 을 가지고 있다
+  - #### target 을 항상 호출한다
