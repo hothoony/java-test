@@ -1,5 +1,5 @@
-[DEBUG][2021-12-16 16:31:28,401](Log4j2Test.java[debugTest]:12) - 11
-[DEBUG][2021-12-16 16:31:28,405](Log4j2Test.java[debugTest]:15) - 22
+2222 [DEBUG][2021-12-16 16:37:23,202](Log4j2Test.java[debugTest]:12) - 11
+2222 [DEBUG][2021-12-16 16:37:23,206](Log4j2Test.java[debugTest]:15) - 22
 java.lang.IllegalStateException: 에러발생
 	at Log4j2Test.debugTest(Log4j2Test.java:13) ~[test-classes/:?]
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_311]
@@ -71,8 +71,8 @@ java.lang.IllegalStateException: 에러발생
 	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35) [junit-rt.jar:?]
 	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:235) [junit-rt.jar:?]
 	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:54) [junit-rt.jar:?]
-[ INFO][2021-12-16 16:31:28,418](Log4j2Test.java[infoTest]:22) - 11
-[ INFO][2021-12-16 16:31:28,418](Log4j2Test.java[infoTest]:25) - 22
+2222 [ INFO][2021-12-16 16:37:23,222](Log4j2Test.java[infoTest]:22) - 11
+2222 [ INFO][2021-12-16 16:37:23,222](Log4j2Test.java[infoTest]:25) - 22
 java.lang.IllegalStateException: 에러발생
 	at Log4j2Test.infoTest(Log4j2Test.java:23) ~[test-classes/:?]
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_311]
@@ -144,8 +144,8 @@ java.lang.IllegalStateException: 에러발생
 	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35) [junit-rt.jar:?]
 	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:235) [junit-rt.jar:?]
 	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:54) [junit-rt.jar:?]
-[ERROR][2021-12-16 16:31:28,421](Log4j2Test.java[errorTest]:32) - 11
-[ERROR][2021-12-16 16:31:28,421](Log4j2Test.java[errorTest]:35) - 22
+2222 [ERROR][2021-12-16 16:37:23,225](Log4j2Test.java[errorTest]:32) - 11
+2222 [ERROR][2021-12-16 16:37:23,226](Log4j2Test.java[errorTest]:35) - 22
 java.lang.IllegalStateException: 에러발생
 	at Log4j2Test.errorTest(Log4j2Test.java:33) ~[test-classes/:?]
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_311]

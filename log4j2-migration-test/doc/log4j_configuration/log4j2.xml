@@ -4,12 +4,12 @@
 	<Appenders>
 
 		<Console name="stdout">
-			<PatternLayout pattern="123123 [%5p][%d](%F[%M]:%L) - %m%n" />
+			<PatternLayout pattern="1111 [%5p][%d](%F[%M]:%L) - %m%n" />
 		</Console>
 
-		<File name="dailyLog" fileName="${hp.webdoc.root}/WEB-INF/logs/hp.log">
-			<PatternLayout pattern="[%5p][%d](%F[%M]:%L) - %m%n" />
-		</File>
+		<RollingFile name="dailyLog" fileName="logs/hp.log">
+			<PatternLayout pattern="2222 [%5p][%d](%F[%M]:%L) - %m%n" />
+		</RollingFile>
 
 	</Appenders>
 
@@ -29,7 +29,7 @@
 
 		<Root level="trace">
 			<AppenderRef ref="stdout" />
-<!--			<AppenderRef ref="dailyLog" />-->
+			<AppenderRef ref="dailyLog" />
 		</Root>
 
 	</Loggers>

@@ -4,32 +4,39 @@
 	<Appenders>
 
 		<Console name="stdout">
-			<PatternLayout pattern="123123 [%5p][%d](%F[%M]:%L) - %m%n" />
+			<PatternLayout>
+				<Pattern>1111 [%5p][%d](%F[%M]:%L) - %m%n</Pattern>
+			</PatternLayout>
 		</Console>
 
-		<File name="dailyLog" fileName="${hp.webdoc.root}/WEB-INF/logs/hp.log">
-			<PatternLayout pattern="[%5p][%d](%F[%M]:%L) - %m%n" />
-		</File>
+		<RollingFile name="dailyLog"
+					 fileName="logs/app.log"
+					 filePattern="logs/app.log.%d{yyyy-MM-dd}">
+			<PatternLayout>
+				<Pattern>2222 [%5p][%d](%F[%M]:%L) - %m%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<OnStartupTriggeringPolicy />
+				<TimeBasedTriggeringPolicy />
+			</Policies>
+		</RollingFile>
 
 	</Appenders>
 
 	<Loggers>
 
-<!--		<Logger name="com.hp" level="debug">-->
-<!--			<AppenderRef ref="stdout" />-->
-<!--		</Logger>-->
-<!--		<Logger name="java.sql.Connection" level="debug">-->
-<!--		</Logger>-->
-<!--		<Logger name="java.sql.Statement" level="debug">-->
-<!--		</Logger>-->
-<!--		<Logger name="java.sql.PreparedStatement" level="debug">-->
-<!--		</Logger>-->
-<!--		<Logger name="java.sql.ResultSet" level="debug">-->
-<!--		</Logger>-->
+		<Logger name="com.hp" level="debug">
+			<AppenderRef ref="stdout" />
+			<AppenderRef ref="dailyLog" />
+		</Logger>
+		<Logger name="java.sql.PreparedStatement" level="debug">
+			<AppenderRef ref="stdout" />
+			<AppenderRef ref="dailyLog" />
+		</Logger>
 
 		<Root level="trace">
 			<AppenderRef ref="stdout" />
-<!--			<AppenderRef ref="dailyLog" />-->
+			<AppenderRef ref="dailyLog" />
 		</Root>
 
 	</Loggers>
