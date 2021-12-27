@@ -7,32 +7,25 @@ public class Log4j2Test {
     private static Logger logger = LogManager.getLogger(Log4j2Test.class);
 
     @Test
-    void debugTest() {
+    void test() {
         try {
-            logger.debug("11");
-            throw new IllegalStateException("에러발생");
+            callInner();
         } catch (Exception e) {
-            logger.debug("22", e);
+            logger.error("66 Error " + e.getMessage(), e);
         }
     }
 
-    @Test
-    void infoTest() {
+    void callInner() {
         try {
-            logger.info("11");
+            logger.trace("11 Trace");
+            logger.debug("22 Debug");
+            logger.info("33 Info");
+            logger.warn("44 Warn");
             throw new IllegalStateException("에러발생");
         } catch (Exception e) {
-            logger.info("22", e);
-        }
-    }
-
-    @Test
-    void errorTest() {
-        try {
-            logger.error("11");
-            throw new IllegalStateException("에러발생");
-        } catch (Exception e) {
-            logger.error("22", e);
+//            logger.error("55 Error " + e.getMessage());
+            logger.error("55 Error " + e.getMessage(), e);
+            throw e;
         }
     }
 
