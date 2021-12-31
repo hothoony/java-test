@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="slf4j-log4j2-test" />
+        <module name="slf4j-logback-test" />
       </profile>
     </annotationProcessing>
   </component>

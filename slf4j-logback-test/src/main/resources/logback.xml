@@ -7,8 +7,7 @@
         </encoder>
     </appender>
 
-    <logger name="org.apache.test" level="debug" additivity="false">
-    </logger>
+    <logger name="org.apache.test" level="debug" additivity="false" />
 
     <root level="info">
         <appender-ref ref="console" />
