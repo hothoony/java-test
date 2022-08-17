@@ -10,6 +10,9 @@ public class NestedTest {
 
     }
 
+    /**
+     * 내부 클래스를 만들고 테스트 코드를 작성
+     */
     @Nested
     class FindOne {
         @Test

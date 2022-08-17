@@ -1,13 +1,12 @@
 package com.example.junit5example;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class DisplayNameTest {
 
     @Test
-    @DisplayName("my test 1")
+    @DisplayName("테스트 결과창에 레이블을 출력 => my test 1")
     void test1() {
 
     }

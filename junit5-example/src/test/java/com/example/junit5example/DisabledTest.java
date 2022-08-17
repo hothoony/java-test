@@ -8,6 +8,7 @@ public class DisabledTest {
 
     @Test
     @Disabled
+    @DisplayName("@Disabled 애노테이션이 붙은 테스트는 실행하지 않는다")
     void test2() {
 
     }
