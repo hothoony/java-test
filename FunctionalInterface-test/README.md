@@ -1,3 +1,5 @@
+# 템플릿 콜백 패턴에서 @FunctionalInterface 사용하기
+
 ## 추상 클래스를 사용하는 방법
 
 1. 추상 클래스로 템플릿 로직을 정의한다
@@ -11,9 +13,8 @@ public abstract class MainLogic {
         log.info("로직 실행 종료");
     }
 
-    // 서브 클래스에서 구현할 메소드
+    // 서브 로직
     protected abstract void call();
-    
 }
 ```
 2. 추상 클래스를 상속한 서브 클래스를 만들고 추가할 로직을 구현한다
@@ -26,7 +27,7 @@ public class SubLogic1 extends MainLogic {
     }
 }
 ```
-3. 서브 클래스 인스턴스를 만들고 메소드를 호출한다
+3. 서브 클래스의 인스턴스를 만들고 템플릿 메소드를 호출한다
 ```java
 public class V0_test {
 
@@ -49,7 +50,8 @@ public class V0_test {
 1. 일반 클래스로 템플릿 로직을 정의한다
 ```java
 public class MainLogic {
-    
+
+    // 템플릿 로직
     public void execute(SubLogic subLogic) {
         log.info("로직 실행 시작");
         subLogic.call();
