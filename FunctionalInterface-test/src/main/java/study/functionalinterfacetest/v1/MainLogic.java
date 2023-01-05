@@ -3,7 +3,7 @@ package study.functionalinterfacetest.v1;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class CommonLogic {
+public class MainLogic {
     
     public void execute(SubLogic subLogic) {
         log.info("로직 실행 시작");

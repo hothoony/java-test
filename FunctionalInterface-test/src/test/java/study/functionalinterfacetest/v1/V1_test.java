@@ -13,7 +13,7 @@ public class V1_test {
 
     @Test
     void subLogic1() {
-        CommonLogic subLogic = new CommonLogic();
+        MainLogic subLogic = new MainLogic();
         subLogic.execute(() -> {
             log.info("비지니스 로직1 실행");
         });
@@ -21,7 +21,7 @@ public class V1_test {
 
     @Test
     void subLogic2() {
-        CommonLogic subLogic = new CommonLogic();
+        MainLogic subLogic = new MainLogic();
         subLogic.execute(() -> {
             log.info("비지니스 로직2 실행");
         });

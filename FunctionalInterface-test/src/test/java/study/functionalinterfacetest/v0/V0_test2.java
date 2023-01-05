@@ -12,7 +12,7 @@ public class V0_test2 {
 
     @Test
     void subLogic1() {
-        AbstractLogic subLogic = new AbstractLogic() {
+        MainLogic subLogic = new MainLogic() {
 
             @Override
             protected void call() {
@@ -24,7 +24,7 @@ public class V0_test2 {
 
     @Test
     void subLogic2() {
-        AbstractLogic subLogic = new AbstractLogic() {
+        MainLogic subLogic = new MainLogic() {
 
             @Override
             protected void call() {

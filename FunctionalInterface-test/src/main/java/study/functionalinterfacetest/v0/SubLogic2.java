@@ -3,7 +3,7 @@ package study.functionalinterfacetest.v0;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class SubLogic2 extends AbstractLogic {
+public class SubLogic2 extends MainLogic {
     
     @Override
     protected void call() {
