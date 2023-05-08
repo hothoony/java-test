@@ -24,8 +24,8 @@ public class LocalTimeTest_oneHour {
         int minute = localTime.getMinute();
         int second = localTime.getSecond();
         String hh = StringUtil.lpad02(hour);
-        String mm = StringUtil.lpad02(minute);
+        String mi = StringUtil.lpad02(minute);
         String ss = StringUtil.lpad02(second);
-        log.debug("{}:{}:{}", hh, mm, ss);
+        log.debug("{}:{}:{}", hh, mi, ss);
     }
 }
