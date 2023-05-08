@@ -2,11 +2,13 @@ package study.localdatetimetest.ldt02_localdate;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
-import study.localdatetimetest.util.StringUtil;
+import study.localdatetimetest.utils.LocalDateTimeUtil;
+import study.localdatetimetest.utils.StringUtil;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
+
+import static study.localdatetimetest.utils.LocalDateTimeUtil.*;
 
 @Slf4j
 public class LocalDateTest_oneYear {
@@ -20,13 +22,4 @@ public class LocalDateTest_oneYear {
         }
     }
 
-    private void printLocalDate(LocalDate localDate) {
-        int year = localDate.getYear();
-        int month = localDate.getMonthValue();
-        int date = localDate.getDayOfMonth();
-        String yyyy = String.valueOf(year);
-        String mm = StringUtil.lpad02(month);
-        String dd = StringUtil.lpad02(date);
-        log.debug("{}-{}-{}", yyyy, mm, dd);
-    }
 }

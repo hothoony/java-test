@@ -1,4 +1,4 @@
-package study.localdatetimetest.util;
+package study.localdatetimetest.utils;
 
 public class StringUtil {
 

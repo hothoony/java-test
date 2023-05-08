@@ -1,11 +1,11 @@
 package study.localdatetimetest.ldt03_localdatetime;
 
 import org.junit.jupiter.api.Test;
-import study.localdatetimetest.util.LocalDateTimeUtil;
+import study.localdatetimetest.utils.LocalDateTimeUtil;
 
 import java.time.LocalDateTime;
 
-import static study.localdatetimetest.util.StringUtil.*;
+import static study.localdatetimetest.utils.StringUtil.*;
 
 public class weekday_weekend {
 
