@@ -69,6 +69,24 @@ public class LocalDateTimeUtil {
         String mi = StringUtil.lpad02(minute);
         String ss = StringUtil.lpad02(second);
         log.debug("{}-{}-{} {}:{}:{}", yyyy, mm, dd, hh, mi, ss);
+    }
 
+    public static LocalDate randomLocalDate() {
+        LocalDate localDate = LocalDate.of(2023, 1, 1);
+        localDate = localDate.plusDays(randomBetween(0, 365));
+        return localDate;
+    }
+
+    public static LocalDateTime randomLocalDateTime() {
+        LocalDateTime localDateTime = LocalDateTime.of(2023, 1, 1, 0, 0, 0);
+        localDateTime = localDateTime.plusDays(randomBetween(0, 365));
+        localDateTime = localDateTime.plusHours(randomBetween(0, 23));
+        localDateTime = localDateTime.plusMinutes(randomBetween(0, 59));
+        localDateTime = localDateTime.plusSeconds(randomBetween(0, 59));
+        return localDateTime;
+    }
+
+    private static int randomBetween(int start, int end) {
+        return (int) ((Math.random() * (end - start + 1)) + start);
     }
 }
