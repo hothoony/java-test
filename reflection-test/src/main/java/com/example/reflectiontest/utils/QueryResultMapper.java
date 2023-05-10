@@ -19,7 +19,7 @@ public class QueryResultMapper {
     private static <T> T mapToDto(Map<String, Object> map, Class<T> clazz) throws Exception {
         T instance = clazz.getDeclaredConstructor().newInstance();
 
-        List<Field> fields = getAllFields(clazz, new ArrayList<Field>());
+        List<Field> fields = getAllFields(clazz, new ArrayList<>());
         for (Field field : fields) {
             if (!field.canAccess(instance)) {
                 field.setAccessible(true);
