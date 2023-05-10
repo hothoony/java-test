@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 import static study.localdatetimetest.utils.LocalDateTimeUtil.*;
 
@@ -27,6 +28,12 @@ public class LocalDateTime_parse {
     @Test
     void localDateTime_parse() {
         LocalDateTime localDateTime = LocalDateTime.parse("2023-12-31T01:02:03");
+        printLocalDateTime(localDateTime);
+    }
+
+    @Test
+    void localDateTime_parse_pattern() {
+        LocalDateTime localDateTime = LocalDateTime.parse("2023-12-31 01:02:03", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         printLocalDateTime(localDateTime);
     }
 }
