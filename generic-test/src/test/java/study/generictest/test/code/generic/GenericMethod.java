@@ -1,7 +1,7 @@
-package study.generictest.code;
+package study.generictest.test.code.generic;
 
-import study.generictest.dto.MemberDto;
-import study.generictest.dto.TeamDto;
+import study.generictest.test.code.dto.MemberDto;
+import study.generictest.test.code.dto.TeamDto;
 
 public class GenericMethod {
 

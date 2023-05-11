@@ -1,6 +1,6 @@
-package study.generictest.code;
+package study.generictest.test.code.generic;
 
-public class DtoManager<T> { // HERE
+public class GenericClazz<T> { // HERE
     
     private T dto; // HERE
 

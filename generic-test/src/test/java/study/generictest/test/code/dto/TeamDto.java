@@ -1,17 +1,15 @@
-package study.generictest.dto;
+package study.generictest.test.code.dto;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class MemberDto {
+public class TeamDto {
     
-    private Long id;
     private String name;
-    private int age;
 
-    public MemberDto(String name) {
+    public TeamDto(String name) {
         this.name = name;
     }
 }

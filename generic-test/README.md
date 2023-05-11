@@ -7,10 +7,10 @@ class DtoManagerTest {
 
     @Test
     void teamDto() {
-        DtoManager<TeamDto> dtoManager = new DtoManager<>(); // HERE
-        dtoManager.setDto(new TeamDto());
+        DtoManager<TeamDto> genericClazz = new DtoManager<>(); // HERE
+        genericClazz.setDto(new TeamDto());
 
-        TeamDto dto = dtoManager.getDto();
+        TeamDto dto = genericClazz.getDto();
 
         assertThat(dto.getClass() == TeamDto.class);
         System.out.println("dto.getClass() = " + dto.getClass());
@@ -19,10 +19,10 @@ class DtoManagerTest {
 
     @Test
     void memberDto() {
-        DtoManager<MemberDto> dtoManager = new DtoManager<>(); // HERE
-        dtoManager.setDto(new MemberDto());
+        DtoManager<MemberDto> genericClazz = new DtoManager<>(); // HERE
+        genericClazz.setDto(new MemberDto());
 
-        MemberDto dto = dtoManager.getDto();
+        MemberDto dto = genericClazz.getDto();
 
         assertThat(dto.getClass() == MemberDto.class);
         System.out.println("dto.getClass() = " + dto.getClass());

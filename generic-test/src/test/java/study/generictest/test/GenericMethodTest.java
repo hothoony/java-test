@@ -1,9 +1,9 @@
-package study.generictest.generic_method;
+package study.generictest.test;
 
 import org.junit.jupiter.api.Test;
-import study.generictest.dto.MemberDto;
-import study.generictest.dto.TeamDto;
-import study.generictest.code.GenericMethod;
+import study.generictest.test.code.dto.MemberDto;
+import study.generictest.test.code.dto.TeamDto;
+import study.generictest.test.code.generic.GenericMethod;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
