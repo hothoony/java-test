@@ -1,4 +1,4 @@
-package study.generictest.generic_class.code;
+package study.generictest.code;
 
 public class DtoManager<T> { // HERE
     

@@ -1,4 +1,4 @@
-package study.generictest.generic_method.code;
+package study.generictest.code;
 
 import study.generictest.dto.MemberDto;
 import study.generictest.dto.TeamDto;

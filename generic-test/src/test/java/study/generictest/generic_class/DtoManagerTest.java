@@ -3,7 +3,7 @@ package study.generictest.generic_class;
 import org.junit.jupiter.api.Test;
 import study.generictest.dto.MemberDto;
 import study.generictest.dto.TeamDto;
-import study.generictest.generic_class.code.DtoManager;
+import study.generictest.code.DtoManager;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
