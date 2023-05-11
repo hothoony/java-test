@@ -3,9 +3,12 @@ package study.generictest.test.code.generic;
 import study.generictest.test.code.dto.MemberDto;
 import study.generictest.test.code.dto.TeamDto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class GenericMethod {
 
-    public <T> T getValue(String str, Class<T> clazz) { // HERE
+    public <T> T getDto(String str, Class<T> clazz) { // HERE
         Object object = null;
         if (clazz.isAssignableFrom(TeamDto.class)) { // HERE
             object = new TeamDto(str);
@@ -17,5 +20,19 @@ public class GenericMethod {
             object = new Object();
         }
         return clazz.cast(object); // HERE
+    }
+    
+    public <T> List<T> getDtoList(String str, Class<T> clazz) {
+        List objects = new ArrayList<>();
+        if (clazz.isAssignableFrom(TeamDto.class)) { // HERE
+            objects.add(new TeamDto(str));
+        }
+        else if (clazz.isAssignableFrom(MemberDto.class)) {
+            objects.add(new MemberDto(str));
+        }
+        else {
+            objects.add(new Object());
+        }
+        return objects;
     }
 }

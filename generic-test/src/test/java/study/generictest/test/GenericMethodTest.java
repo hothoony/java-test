@@ -5,27 +5,43 @@ import study.generictest.test.code.dto.MemberDto;
 import study.generictest.test.code.dto.TeamDto;
 import study.generictest.test.code.generic.GenericMethod;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class GenericMethodTest {
 
     @Test
-    void getValue_teamDto() {
+    void getDto_teamDto() {
         GenericMethod genericMethod = new GenericMethod();
 
-        TeamDto teamDto = genericMethod.getValue("abc", TeamDto.class); // HERE
+        TeamDto teamDto = genericMethod.getDto("abc", TeamDto.class); // HERE
 
         System.out.println("teamDto = " + teamDto);
         assertThat(teamDto.getClass()).isEqualTo(TeamDto.class);
     }
 
     @Test
-    void getValue_memberDto() {
+    void getDto_memberDto() {
         GenericMethod genericMethod = new GenericMethod();
 
-        MemberDto memberDto = genericMethod.getValue("abc", MemberDto.class); // HERE
+        MemberDto memberDto = genericMethod.getDto("abc", MemberDto.class); // HERE
 
         System.out.println("memberDto = " + memberDto);
         assertThat(memberDto.getClass()).isEqualTo(MemberDto.class);
+    }
+
+    @Test
+    void getDtoList_teamDto() {
+        GenericMethod genericMethod = new GenericMethod();
+        List<TeamDto> list = genericMethod.getDtoList("abc", TeamDto.class);
+        System.out.println("list = " + list);
+    }
+
+    @Test
+    void getDtoList_memberDto() {
+        GenericMethod genericMethod = new GenericMethod();
+        List<MemberDto> list = genericMethod.getDtoList("abc", MemberDto.class);
+        System.out.println("list = " + list);
     }
 }
