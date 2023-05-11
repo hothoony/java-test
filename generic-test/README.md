@@ -3,11 +3,35 @@
 - 인스턴스 생성할 때 타입을 전달
 
 ```java
-class DtoManagerTest {
+public class GenericClazz<T> { // HERE
+
+    private T dto; // HERE
+    private List<T> dtoList = new ArrayList<>();
+
+    public void setDto(T dto) { // HERE
+        this.dto = dto;
+    }
+
+    public T getDto() { // HERE
+        return dto;
+    }
+
+    public void setDtoList(T dto) {
+        dtoList.add(dto);
+    }
+
+    public List<T> getDtoList() {
+        return dtoList;
+    }
+}
+```
+
+```java
+class GenericClazzTest {
 
     @Test
-    void teamDto() {
-        DtoManager<TeamDto> genericClazz = new DtoManager<>(); // HERE
+    void getDto_teamDto() {
+        GenericClazz<TeamDto> genericClazz = new GenericClazz<>(); // HERE
         genericClazz.setDto(new TeamDto());
 
         TeamDto dto = genericClazz.getDto();
@@ -18,8 +42,8 @@ class DtoManagerTest {
     }
 
     @Test
-    void memberDto() {
-        DtoManager<MemberDto> genericClazz = new DtoManager<>(); // HERE
+    void getDto_memberDto() {
+        GenericClazz<MemberDto> genericClazz = new GenericClazz<>(); // HERE
         genericClazz.setDto(new MemberDto());
 
         MemberDto dto = genericClazz.getDto();
@@ -28,20 +52,23 @@ class DtoManagerTest {
         System.out.println("dto.getClass() = " + dto.getClass());
         System.out.println("dto = " + dto);
     }
-}
-```
 
-```java
-public class DtoManager<T> { // HERE
+    @Test
+    void getDtoList_teamDto() {
+        GenericClazz<TeamDto> genericClazz = new GenericClazz<>();
+        genericClazz.setDtoList(new TeamDto());
 
-    private T dto; // HERE
-
-    public void setDto(T dto) { // HERE
-        this.dto = dto;
+        List<TeamDto> list = genericClazz.getDtoList();
+        System.out.println("list = " + list);
     }
 
-    public T getDto() { // HERE
-        return dto;
+    @Test
+    void getDtoList_memberDto() {
+        GenericClazz<MemberDto> genericClazz = new GenericClazz<>();
+        genericClazz.setDtoList(new MemberDto());
+
+        List<MemberDto> list = genericClazz.getDtoList();
+        System.out.println("list = " + list);
     }
 }
 ```
@@ -52,34 +79,9 @@ public class DtoManager<T> { // HERE
 - 메소드 호출할 때 타입을 전달
 
 ```java
-public class GenericMethodTest {
-
-    @Test
-    void teamDto() {
-        GenericMethod genericMethod = new GenericMethod();
-
-        TeamDto teamDto = genericMethod.getValue("abc", TeamDto.class); // HERE
-
-        System.out.println("teamDto = " + teamDto);
-        assertThat(teamDto.getClass()).isEqualTo(TeamDto.class);
-    }
-
-    @Test
-    void memberDto() {
-        GenericMethod genericMethod = new GenericMethod();
-
-        MemberDto memberDto = genericMethod.getValue("abc", MemberDto.class); // HERE
-
-        System.out.println("memberDto = " + memberDto);
-        assertThat(memberDto.getClass()).isEqualTo(MemberDto.class);
-    }
-}
-```
-
-```java
 public class GenericMethod {
 
-    public <T> T getValue(String str, Class<T> clazz) { // HERE
+    public <T> T getDto(String str, Class<T> clazz) { // HERE
         Object object = null;
         if (clazz.isAssignableFrom(TeamDto.class)) { // HERE
             object = new TeamDto(str);
@@ -91,6 +93,59 @@ public class GenericMethod {
             object = new Object();
         }
         return clazz.cast(object); // HERE
+    }
+
+    public <T> List<T> getDtoList(String str, Class<T> clazz) {
+        List objects = new ArrayList<>();
+        if (clazz.isAssignableFrom(TeamDto.class)) { // HERE
+            objects.add(new TeamDto(str));
+        }
+        else if (clazz.isAssignableFrom(MemberDto.class)) {
+            objects.add(new MemberDto(str));
+        }
+        else {
+            objects.add(new Object());
+        }
+        return objects;
+    }
+}
+```
+
+```java
+public class GenericMethodTest {
+
+    @Test
+    void getDto_teamDto() {
+        GenericMethod genericMethod = new GenericMethod();
+
+        TeamDto teamDto = genericMethod.getDto("abc", TeamDto.class); // HERE
+
+        System.out.println("teamDto = " + teamDto);
+        assertThat(teamDto.getClass()).isEqualTo(TeamDto.class);
+    }
+
+    @Test
+    void getDto_memberDto() {
+        GenericMethod genericMethod = new GenericMethod();
+
+        MemberDto memberDto = genericMethod.getDto("abc", MemberDto.class); // HERE
+
+        System.out.println("memberDto = " + memberDto);
+        assertThat(memberDto.getClass()).isEqualTo(MemberDto.class);
+    }
+
+    @Test
+    void getDtoList_teamDto() {
+        GenericMethod genericMethod = new GenericMethod();
+        List<TeamDto> list = genericMethod.getDtoList("abc", TeamDto.class);
+        System.out.println("list = " + list);
+    }
+
+    @Test
+    void getDtoList_memberDto() {
+        GenericMethod genericMethod = new GenericMethod();
+        List<MemberDto> list = genericMethod.getDtoList("abc", MemberDto.class);
+        System.out.println("list = " + list);
     }
 }
 ```
