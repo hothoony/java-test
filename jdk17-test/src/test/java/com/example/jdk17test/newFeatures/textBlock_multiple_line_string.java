@@ -2,7 +2,7 @@ package com.example.jdk17test.newFeatures;
 
 import org.junit.jupiter.api.Test;
 
-public class multiple_line_string {
+public class textBlock_multiple_line_string {
 
     @Test
     void textBlock() {
