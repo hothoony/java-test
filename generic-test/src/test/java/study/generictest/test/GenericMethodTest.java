@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class GenericMethodTest {
 
     @Test
-    void teamDto() {
+    void getValue_teamDto() {
         GenericMethod genericMethod = new GenericMethod();
 
         TeamDto teamDto = genericMethod.getValue("abc", TeamDto.class); // HERE
@@ -20,7 +20,7 @@ public class GenericMethodTest {
     }
 
     @Test
-    void memberDto() {
+    void getValue_memberDto() {
         GenericMethod genericMethod = new GenericMethod();
 
         MemberDto memberDto = genericMethod.getValue("abc", MemberDto.class); // HERE
