@@ -1,4 +1,4 @@
-package study.generictest.test.code.generic;
+package study.generictest.generic;
 
 import java.util.ArrayList;
 import java.util.List;

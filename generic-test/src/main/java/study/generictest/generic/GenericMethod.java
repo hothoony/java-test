@@ -1,7 +1,7 @@
-package study.generictest.test.code.generic;
+package study.generictest.generic;
 
-import study.generictest.test.code.dto.MemberDto;
-import study.generictest.test.code.dto.TeamDto;
+import study.generictest.dto.MemberDto;
+import study.generictest.dto.TeamDto;
 
 import java.util.ArrayList;
 import java.util.List;

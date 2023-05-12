@@ -1,9 +1,9 @@
-package study.generictest.test;
+package study.generictest.generic;
 
 import org.junit.jupiter.api.Test;
-import study.generictest.test.code.generic.GenericClazz;
-import study.generictest.test.code.dto.MemberDto;
-import study.generictest.test.code.dto.TeamDto;
+import study.generictest.generic.GenericClazz;
+import study.generictest.dto.MemberDto;
+import study.generictest.dto.TeamDto;
 
 import java.util.List;
 
