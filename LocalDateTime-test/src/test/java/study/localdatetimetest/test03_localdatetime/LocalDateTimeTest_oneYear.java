@@ -1,9 +1,7 @@
-package study.localdatetimetest.ldt03_localdatetime;
+package study.localdatetimetest.test03_localdatetime;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
-import study.localdatetimetest.utils.LocalDateTimeUtil;
-import study.localdatetimetest.utils.StringUtil;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

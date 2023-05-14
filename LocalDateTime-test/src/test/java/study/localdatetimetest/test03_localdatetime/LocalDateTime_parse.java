@@ -1,4 +1,4 @@
-package study.localdatetimetest.ldt03_localdatetime;
+package study.localdatetimetest.test03_localdatetime;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
