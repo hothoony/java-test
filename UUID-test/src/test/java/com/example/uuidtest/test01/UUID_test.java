@@ -7,7 +7,7 @@ import java.nio.ByteOrder;
 import java.util.Arrays;
 import java.util.UUID;
 
-public class UUID_test {
+class UUID_test {
 
     @Test
     void test2() {
