@@ -1,11 +1,14 @@
 package com.example.uuidtest.test01;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.Arrays;
 import java.util.UUID;
+
+import static org.assertj.core.api.Assertions.*;
 
 class UUID_test {
 
@@ -45,5 +48,22 @@ class UUID_test {
         
         // uuid.toString().length() = 36
         System.out.println("uuid.toString().length() = " + uuid.toString().length());
+    }
+
+    @Test
+    void fromString_validTest() {
+        String uuidStr = "36cfe541-19bb-45f1-8b35-d5a83a0303c7";
+        UUID uuid = UUID.fromString(uuidStr);
+        System.out.println("uuid = " + uuid);
+        assertThat(uuid.toString()).isEqualTo(uuidStr);
+    }
+
+    @Test
+    void fromString_invalidTest() {
+        assertThatThrownBy(() -> {
+            String uuidStr = "aa";
+            UUID uuid = UUID.fromString(uuidStr);
+            System.out.println("uuid = " + uuid);
+        }).isInstanceOf(IllegalArgumentException.class);
     }
 }
