@@ -1,3 +1,18 @@
+
+```
+Supplier       ()    -> x              // 파라미터는 없고, 값을 리턴한다
+Consumer       x     -> ()             // 파라미터가 있고, 값을 리턴하지 않는다
+BiConsumer     x, y  -> ()             // 파라미터가 여러 개 있고, 값을 리턴하지 않는다
+Callable       ()    -> x throws ex    // 
+Runnable       ()    -> ()             // 파라미터도 없고, 값도 리턴하지 않는다
+Function       x     -> y              // 파라미터가 있고, 값을 리턴한다
+BiFunction     x,y   -> z              // 
+Predicate      x     -> boolean        // 
+UnaryOperator  x1    -> x2             // 
+BinaryOperator x1,x2 -> x3             // 
+```
+
+
 ## apply
 - `Function` 으로 정의한 함수를 실행한다
 ```java
