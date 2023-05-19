@@ -1,10 +1,10 @@
-package study.stringutilstest;
+package com.example.demo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class StringUtilsTestApplicationTests {
+class StringTestApplicationTests {
 
     @Test
     void contextLoads() {

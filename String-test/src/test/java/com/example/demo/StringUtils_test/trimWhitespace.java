@@ -1,4 +1,4 @@
-package study.stringutilstest.util;
+package com.example.demo.StringUtils_test;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.util.StringUtils;
