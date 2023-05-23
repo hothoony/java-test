@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="study.stringutilstest.util.StringUtilsTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-10-06T08:43:19" hostname="ingpdev-iMac.local" time="0.02">
+  <properties/>
+  <testcase name="hasText()" classname="study.stringutilstest.util.StringUtilsTest" time="0.02"/>
+  <system-out><![CDATA[false
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
