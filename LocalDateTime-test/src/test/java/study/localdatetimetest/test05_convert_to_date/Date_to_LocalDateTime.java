@@ -8,10 +8,10 @@ import java.time.ZoneId;
 import java.util.Calendar;
 import java.util.Date;
 
-public class LocalDate_LocalDateTime_to_date {
+public class Date_to_LocalDateTime {
 
     @Test
-    void dteToLocalDateTime() {
+    void date_to_LocalDateTime() {
 
         Date date = new Date();
         System.out.println("date               = " + date);
