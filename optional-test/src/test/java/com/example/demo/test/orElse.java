@@ -18,13 +18,13 @@ public class orElse {
     void orElse_null() {
         Optional<String> optional = Optional.ofNullable(null);
         
-        assertThat(optional.orElse(null)).isNull();
+        assertThat(optional.orElse("no value")).isEqualTo("no value");
     }
 
     @Test
     void orElse_notNull() {
-        Optional<String> optional = Optional.ofNullable("");
-        
-        assertThat(optional.orElse(null)).isNotNull();
+        Optional<String> optional = Optional.ofNullable("123");
+
+        assertThat(optional.orElse("no value")).isEqualTo("123");
     }
 }
