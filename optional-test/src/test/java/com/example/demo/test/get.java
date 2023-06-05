@@ -1,4 +1,4 @@
-package study.optionaltest;
+package com.example.demo.test;
 
 import org.junit.jupiter.api.Test;
 
