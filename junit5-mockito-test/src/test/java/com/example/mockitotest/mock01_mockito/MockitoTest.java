@@ -1,4 +1,4 @@
-package com.example.mockitotest.mockito;
+package com.example.mockitotest.mock01_mockito;
 
 import com.example.mockitotest.member.Member;
 import com.example.mockitotest.member.MemberRepository;
@@ -12,11 +12,11 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.BDDMockito.given;
-import static org.mockito.BDDMockito.then;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class BDDMockitoTest {
+public class MockitoTest {
 
     @Mock
     MemberRepository memberRepository;
@@ -25,20 +25,20 @@ public class BDDMockitoTest {
     MemberService memberService;
 
     /**
-     * given
+     * when
      * run
-     * then
+     * verify
      */
     @Test
     void saveMember() {
         Member member = new Member("memberA");
 
-        given(memberRepository.save(any(Member.class)))
-                .willReturn(member)
-                .willThrow(new RuntimeException("롤백 테스트"));
+        when(memberRepository.save(any(Member.class)))
+                .thenReturn(member)
+                .thenThrow(new RuntimeException("롤백 테스트"));
 
         Member saveMember1 = memberService.saveMember(member);
-        then(memberRepository).should().save(any(Member.class));
+        verify(memberRepository).save(any(Member.class));
         assertThat(saveMember1).isEqualTo(member);
 
         assertThatThrownBy(() -> {
