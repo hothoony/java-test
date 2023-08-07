@@ -1,5 +1,7 @@
-package com.example.mockitotest.member;
+package com.example.mockitotest.service;
 
+import com.example.mockitotest.domain.Member;
+import com.example.mockitotest.repository.MemberRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -50,7 +52,7 @@ class MemberServiceSliceTest {
         );
         when(memberRepository.findAll()).thenReturn(members);
 
-        List<Member> actual = memberService.findAll();
+        List<Member> actual = memberService.findAllMembers();
 
         verify(memberRepository).findAll();
         assertThat(actual).hasSize(members.size());

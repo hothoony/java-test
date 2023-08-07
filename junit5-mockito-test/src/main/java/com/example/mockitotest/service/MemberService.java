@@ -1,5 +1,7 @@
-package com.example.mockitotest.member;
+package com.example.mockitotest.service;
 
+import com.example.mockitotest.domain.Member;
+import com.example.mockitotest.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,17 +19,17 @@ public class MemberService {
         return saveMember;
     }
 
-    public List<Member> findAll() {
+    public List<Member> findAllMembers() {
         List<Member> members = memberRepository.findAll();
         return members;
     }
 
-    public Optional<Member> findById(Long id) {
+    public Optional<Member> findMemberById(Long id) {
         Optional<Member> optionalMember = memberRepository.findById(id);
         return optionalMember;
     }
 
-    public List<Member> findByName(String name) {
+    public List<Member> findMemberByName(String name) {
         List<Member> members = memberRepository.findByName(name);
         return members;
     }

@@ -1,8 +1,8 @@
 package com.example.mockitotest.mock01_mockito;
 
-import com.example.mockitotest.member.Member;
-import com.example.mockitotest.member.MemberRepository;
-import com.example.mockitotest.member.MemberService;
+import com.example.mockitotest.domain.Member;
+import com.example.mockitotest.repository.MemberRepository;
+import com.example.mockitotest.service.MemberService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
