@@ -29,6 +29,7 @@ class MemberServiceTest {
 
     @Test
     void saveMember() {
+        
         Member member = new Member("memberA");
 
         Member actual = memberService.saveMember(member);

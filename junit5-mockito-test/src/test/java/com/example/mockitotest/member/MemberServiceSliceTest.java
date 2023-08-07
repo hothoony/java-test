@@ -43,6 +43,7 @@ class MemberServiceSliceTest {
 
     @Test
     void findAll() {
+        
         List<Member> members = Arrays.asList(
                 new Member("memberA"),
                 new Member("memberB")
