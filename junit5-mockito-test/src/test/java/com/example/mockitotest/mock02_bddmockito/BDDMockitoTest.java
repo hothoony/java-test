@@ -33,11 +33,15 @@ public class BDDMockitoTest {
     void saveMember() {
         Member member = new Member("memberA");
 
+        // given
         given(memberRepository.save(any(Member.class)))
                 .willReturn(member)
                 .willThrow(new RuntimeException("롤백 테스트"));
 
+        // run
         Member saveMember1 = memberService.saveMember(member);
+
+        // then
         then(memberRepository).should().save(any(Member.class));
         assertThat(saveMember1).isEqualTo(member);
 

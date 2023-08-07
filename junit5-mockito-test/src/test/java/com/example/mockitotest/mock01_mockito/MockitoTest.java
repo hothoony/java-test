@@ -33,11 +33,15 @@ public class MockitoTest {
     void saveMember() {
         Member member = new Member("memberA");
 
+        // when
         when(memberRepository.save(any(Member.class)))
                 .thenReturn(member)
                 .thenThrow(new RuntimeException("롤백 테스트"));
 
+        // run
         Member saveMember1 = memberService.saveMember(member);
+
+        // verify
         verify(memberRepository).save(any(Member.class));
         assertThat(saveMember1).isEqualTo(member);
 
