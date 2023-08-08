@@ -1,6 +1,7 @@
 package com.example.mockitotest.mock02_bddmockito;
 
 import com.example.mockitotest.domain.Member;
+import com.example.mockitotest.dto.ReqMemberAddDto;
 import com.example.mockitotest.repository.MemberRepository;
 import com.example.mockitotest.service.MemberService;
 import org.junit.jupiter.api.Test;
@@ -31,6 +32,8 @@ public class BDDMockitoTest {
      */
     @Test
     void saveMember() {
+        
+        ReqMemberAddDto reqMemberAddDto = new ReqMemberAddDto("memberA");
         Member member = new Member("memberA");
 
         // given
@@ -39,14 +42,14 @@ public class BDDMockitoTest {
                 .willThrow(new RuntimeException("롤백 테스트"));
 
         // run
-        Member saveMember1 = memberService.saveMember(member);
+        Member saveMember1 = memberService.saveMember(reqMemberAddDto);
 
         // then
         then(memberRepository).should().save(any(Member.class));
         assertThat(saveMember1).isEqualTo(member);
 
         assertThatThrownBy(() -> {
-            Member saveMember2 = memberService.saveMember(member);
+            Member saveMember2 = memberService.saveMember(reqMemberAddDto);
         })
                 .isInstanceOf(RuntimeException.class)
                 .message().isEqualTo("롤백 테스트");

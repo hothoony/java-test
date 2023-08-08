@@ -1,6 +1,7 @@
 package com.example.mockitotest.service;
 
 import com.example.mockitotest.domain.Member;
+import com.example.mockitotest.dto.ReqMemberAddDto;
 import com.example.mockitotest.repository.MemberRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -36,8 +37,9 @@ class MemberServiceSliceTest {
         Member expected = new Member(1L, "memberA");
         when(memberRepository.save(any(Member.class))).thenReturn(expected);
 
+        ReqMemberAddDto reqMemberAddDto = new ReqMemberAddDto("memberA");
         Member member = new Member("memberA");
-        Member actual = memberService.saveMember(member);
+        Member actual = memberService.saveMember(reqMemberAddDto);
 
         verify(memberRepository).save(any(Member.class));
         assertThat(actual).isEqualTo(expected);

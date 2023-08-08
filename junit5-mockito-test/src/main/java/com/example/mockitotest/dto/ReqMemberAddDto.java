@@ -22,4 +22,8 @@ public class ReqMemberAddDto {
     private MemberStateCd memberStateCd;
 
     private LocalDateTime lastLoginTime;
+
+    public ReqMemberAddDto(String memberFnm) {
+        this.memberFnm = memberFnm;
+    }
 }

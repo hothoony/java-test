@@ -1,6 +1,7 @@
 package com.example.mockitotest.service;
 
 import com.example.mockitotest.domain.Member;
+import com.example.mockitotest.dto.ReqMemberAddDto;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -24,9 +25,10 @@ class MemberServiceTest {
     @Test
     void saveMember() {
         
+        ReqMemberAddDto reqMemberAddDto = new ReqMemberAddDto("memberA");
         Member member = new Member("memberA");
 
-        Member actual = memberService.saveMember(member);
+        Member actual = memberService.saveMember(reqMemberAddDto);
 
         assertThat(actual).isEqualTo(member);
     }
