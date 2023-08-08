@@ -1,8 +1,12 @@
 package com.example.mockitotest.service;
 
 import com.example.mockitotest.domain.Member;
+import com.example.mockitotest.dto.MemberAgreeDto;
+import com.example.mockitotest.dto.MemberDto;
+import com.example.mockitotest.dto.ReqMemberAddDto;
 import com.example.mockitotest.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,10 +17,23 @@ import java.util.Optional;
 public class MemberService {
 
     private final MemberRepository memberRepository;
+    private final MemberAgreeService memberAgreeService;
+    private final ModelMapper modelMapper;
+    private final MailService mailService;
+    private final SmsService smsService;
 
-    public Member saveMember(Member member) {
-        Member saveMember = memberRepository.save(member);
-        return saveMember;
+    public Member saveMember(ReqMemberAddDto reqMemberAddDto) {
+        
+        Member member = modelMapper.map(reqMemberAddDto, Member.class);
+        MemberAgreeDto memberAgreeDto = modelMapper.map(reqMemberAddDto, MemberAgreeDto.class);
+        
+        memberRepository.save(member);
+        memberAgreeService.saveMemberAgree(memberAgreeDto);
+
+        mailService.sendMail("mail body content");
+        smsService.sendSms("sms body content");
+        
+        return member;
     }
 
     public List<Member> findAllMembers() {
