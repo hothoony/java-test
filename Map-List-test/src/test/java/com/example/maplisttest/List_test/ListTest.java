@@ -1,4 +1,4 @@
-package com.example.maplisttest.test;
+package com.example.maplisttest.List_test;
 
 import org.junit.jupiter.api.Test;
 
