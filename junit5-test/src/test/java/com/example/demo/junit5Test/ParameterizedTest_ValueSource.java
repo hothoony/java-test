@@ -1,4 +1,4 @@
-package com.example.junit5test;
+package com.example.demo.junit5Test;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;

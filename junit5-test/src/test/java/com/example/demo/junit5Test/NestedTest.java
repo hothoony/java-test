@@ -1,4 +1,4 @@
-package com.example.junit5test;
+package com.example.demo.junit5Test;
 
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
