@@ -4,6 +4,7 @@ public enum MemberTypeCd {
 
     ADMIN("10", "admin"),
     MEMBER("20", "member"),
+    
     MA0("MA0", "person"),
     MB0("MB0", "company");
 
