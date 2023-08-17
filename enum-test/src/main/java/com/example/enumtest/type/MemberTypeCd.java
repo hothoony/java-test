@@ -2,18 +2,20 @@ package com.example.enumtest.type;
 
 public enum MemberTypeCd {
 
-    ADMIN(10, "admin"),
-    MEMBER(20, "member");
+    ADMIN("10", "admin"),
+    MEMBER("20", "member"),
+    MA0("MA0", "person"),
+    MB0("MB0", "company");
 
-    private Integer code;
+    private String code;
     private String name;
 
-    MemberTypeCd(Integer code, String name) {
+    MemberTypeCd(String code, String name) {
         this.code = code;
         this.name = name;
     }
 
-    public Integer cd() {
+    public String cd() {
         return code;
     }
 
@@ -23,10 +25,10 @@ public enum MemberTypeCd {
 
     public static MemberTypeCd ofCode(Object codeObj) {
         String code = String.valueOf(codeObj);
-        if (Integer.valueOf(code) == ADMIN.code) {
+        if (ADMIN.code.equals(code)) {
             return ADMIN;
         }
-        else if (Integer.valueOf(code)  == MEMBER.code) {
+        else if (MEMBER.code.equals(code)) {
             return MEMBER;
         }
         return null;
