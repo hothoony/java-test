@@ -26,7 +26,7 @@ public class MemberService {
         
         Member member = modelMapper.map(reqMemberAddDto, Member.class);
         MemberAgreeDto memberAgreeDto = modelMapper.map(reqMemberAddDto, MemberAgreeDto.class);
-        
+
         memberRepository.save(member);
         memberAgreeService.saveMemberAgree(memberAgreeDto);
 
@@ -47,7 +47,7 @@ public class MemberService {
     }
 
     public List<Member> findMemberByName(String name) {
-        List<Member> members = memberRepository.findByName(name);
+        List<Member> members = memberRepository.findByMemberFnm(name);
         return members;
     }
 }

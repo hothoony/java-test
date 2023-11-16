@@ -17,8 +17,9 @@ public class MemberAgreeService {
     private final MemberAgreeRepository memberAgreeRepository;
     private final ModelMapper modelMapper;
 
-    public void saveMemberAgree(MemberAgreeDto memberAgreeDto) {
+    public MemberAgree saveMemberAgree(MemberAgreeDto memberAgreeDto) {
         MemberAgree memberAgree = modelMapper.map(memberAgreeDto, MemberAgree.class);
         memberAgreeRepository.save(memberAgree);
+        return memberAgree;
     }
 }
