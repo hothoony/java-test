@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class SmsService {
 
-    public String sendSms(String str) {
-        return "sendSms OK";
+    public void sendSms(String str) {
+        System.out.println("sendSms OK - " + str);
     }
 }

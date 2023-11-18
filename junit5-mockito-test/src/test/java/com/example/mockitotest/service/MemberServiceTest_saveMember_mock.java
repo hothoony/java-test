@@ -1,6 +1,7 @@
 package com.example.mockitotest.service;
 
 import com.example.mockitotest.domain.Member;
+import com.example.mockitotest.domain.MemberAgree;
 import com.example.mockitotest.dto.MemberAgreeDto;
 import com.example.mockitotest.dto.ReqMemberAddDto;
 import com.example.mockitotest.repository.MemberRepository;
@@ -9,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.modelmapper.ModelMapper;
 import org.springframework.ui.ModelMap;
@@ -16,8 +18,10 @@ import org.springframework.ui.ModelMap;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.BDDMockito.given;
+import static org.mockito.BDDMockito.willCallRealMethod;
 import static org.mockito.BDDMockito.willDoNothing;
 
 @ExtendWith(MockitoExtension.class)
@@ -40,6 +44,23 @@ class MemberServiceTest_saveMember_mock {
 
     @Mock
     SmsService smsService;
+
+    @Test
+    void saveMember() {
+
+        given(modelMapper.map(any(), eq(Member.class))).willReturn(new Member("memberA"));
+        given(modelMapper.map(any(), eq(MemberAgreeDto.class))).willReturn(new MemberAgreeDto());
+        given(memberRepository.save(any())).willReturn(new Member("memberA"));
+        given(memberAgreeService.saveMemberAgree(any(MemberAgreeDto.class))).willReturn(new MemberAgree());
+//        willDoNothing().given(mailService).sendMail(anyString());
+//        willDoNothing().given(smsService).sendSms(anyString());
+
+        ReqMemberAddDto reqMemberAddDto = new ReqMemberAddDto("memberA");
+        reqMemberAddDto.setMemberId(1L);
+        Member member = new Member(1L, "memberA");
+
+        Member actual = memberService.saveMember(reqMemberAddDto);
+    }
 
     @Test
     void saveMember_exception() {
