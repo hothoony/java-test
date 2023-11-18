@@ -1,25 +1,23 @@
-package com.example.mockitotest.mock01_mockito;
+package com.example.mockitotest.mock02_bddmockito;
 
 import com.example.mockitotest.domain.Member;
 import com.example.mockitotest.dto.ReqMemberAddDto;
 import com.example.mockitotest.repository.MemberRepository;
 import com.example.mockitotest.service.MemberService;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.BDDMockito.given;
+import static org.mockito.BDDMockito.then;
 
 @ExtendWith(MockitoExtension.class)
-public class MockitoTest {
+public class BDDMockitoTest_given_then {
 
     @Mock
     MemberRepository memberRepository;
@@ -28,9 +26,9 @@ public class MockitoTest {
     MemberService memberService;
 
     /**
-     * when
+     * given
      * run
-     * verify
+     * then
      */
     @Test
     void saveMember() {
@@ -38,16 +36,16 @@ public class MockitoTest {
         ReqMemberAddDto reqMemberAddDto = new ReqMemberAddDto("memberA");
         Member member = new Member("memberA");
 
-        // when
-        when(memberRepository.save(any(Member.class)))
-                .thenReturn(member)
-                .thenThrow(new RuntimeException("롤백 테스트"));
+        // given
+        given(memberRepository.save(any(Member.class)))
+                .willReturn(member)
+                .willThrow(new RuntimeException("롤백 테스트"));
 
         // run
         Member saveMember1 = memberService.saveMember(reqMemberAddDto);
 
-        // verify
-        verify(memberRepository).save(any(Member.class));
+        // then
+        then(memberRepository).should().save(any(Member.class));
         assertThat(saveMember1).isEqualTo(member);
 
         assertThatThrownBy(() -> {
