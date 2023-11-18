@@ -14,7 +14,6 @@ import org.mockito.Mock;
 import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.modelmapper.ModelMapper;
-import org.springframework.ui.ModelMap;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -75,7 +74,7 @@ class MemberServiceTest_saveMember_mock {
     @Test
     void saveMember_exception() {
 
-        AbstractThrowableAssert<?, ? extends Throwable> abstractThrowableAssert = assertThatThrownBy(() -> {
+        assertThatThrownBy(() -> {
 
             given(modelMapper.map(any(), eq(Member.class))).willReturn(new Member("memberA"));
             given(modelMapper.map(any(), eq(MemberAgreeDto.class))).willReturn(new MemberAgreeDto());
@@ -83,16 +82,15 @@ class MemberServiceTest_saveMember_mock {
             given(memberAgreeService.saveMemberAgree(any(MemberAgreeDto.class)))
                     .willThrow(new RuntimeException("테스트 예외"));
 
-            ReqMemberAddDto reqMemberAddDto = new ReqMemberAddDto("memberA");
-            reqMemberAddDto.setMemberId(1L);
-            Member member = new Member(1L, "memberA");
+            ReqMemberAddDto reqMemberAddDto1 = new ReqMemberAddDto("memberA");
+            reqMemberAddDto1.setMemberId(1L);
+            Member member1 = new Member(1L, "memberA");
 
-            Member actual = memberService.saveMember(reqMemberAddDto);
+            Member actual1 = memberService.saveMember(reqMemberAddDto1);
 
-        });
-
-        abstractThrowableAssert.isInstanceOf(RuntimeException.class);
-        abstractThrowableAssert.hasMessage("테스트 예외");
+        })
+        .isInstanceOf(RuntimeException.class)
+        .hasMessage("테스트 예외");
     }
 
     @Test
