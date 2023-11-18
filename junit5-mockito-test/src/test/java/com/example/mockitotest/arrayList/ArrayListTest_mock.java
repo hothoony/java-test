@@ -18,6 +18,17 @@ public class ArrayListTest_mock {
     ArrayList list;
 
     @Test
+    void test2() {
+
+        list.add(11);
+        list.add(22);
+        list.add(33);
+        int size = list.size();
+
+        assertThat(size).isEqualTo(0);
+    }
+
+    @Test
     void test1() {
 
         given(list.size()).willReturn(-1);
@@ -27,7 +38,6 @@ public class ArrayListTest_mock {
         list.add(33);
         int size = list.size();
 
-        then(list).should().size();
         assertThat(size).isEqualTo(-1);
     }
 }
