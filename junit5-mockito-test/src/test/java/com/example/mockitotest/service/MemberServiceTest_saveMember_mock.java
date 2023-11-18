@@ -8,6 +8,7 @@ import com.example.mockitotest.repository.MemberRepository;
 import org.assertj.core.api.AbstractThrowableAssert;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.BDDMockito;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Spy;
@@ -20,6 +21,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.BDDMockito.*;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.willCallRealMethod;
 import static org.mockito.BDDMockito.willDoNothing;
@@ -48,18 +50,26 @@ class MemberServiceTest_saveMember_mock {
     @Test
     void saveMember() {
 
+        // given
         given(modelMapper.map(any(), eq(Member.class))).willReturn(new Member("memberA"));
         given(modelMapper.map(any(), eq(MemberAgreeDto.class))).willReturn(new MemberAgreeDto());
         given(memberRepository.save(any())).willReturn(new Member("memberA"));
         given(memberAgreeService.saveMemberAgree(any(MemberAgreeDto.class))).willReturn(new MemberAgree());
-//        willDoNothing().given(mailService).sendMail(anyString());
-//        willDoNothing().given(smsService).sendSms(anyString());
+        willDoNothing().given(mailService).sendMail(anyString());
+        willDoNothing().given(smsService).sendSms(anyString());
 
         ReqMemberAddDto reqMemberAddDto = new ReqMemberAddDto("memberA");
         reqMemberAddDto.setMemberId(1L);
         Member member = new Member(1L, "memberA");
 
+        // when
         Member actual = memberService.saveMember(reqMemberAddDto);
+
+        // then
+        then(memberRepository).should().save(any(Member.class));
+        then(memberAgreeService).should().saveMemberAgree(any(MemberAgreeDto.class));
+        then(mailService).should().sendMail(anyString());
+        then(smsService).should().sendSms(anyString());
     }
 
     @Test
