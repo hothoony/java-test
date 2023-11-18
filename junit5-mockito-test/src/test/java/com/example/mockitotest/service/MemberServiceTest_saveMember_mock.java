@@ -62,7 +62,6 @@ class MemberServiceTest_saveMember_mock {
 
         abstractThrowableAssert.isInstanceOf(RuntimeException.class);
         abstractThrowableAssert.hasMessage("테스트 예외");
-
     }
 
     @Test
