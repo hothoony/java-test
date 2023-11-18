@@ -12,6 +12,7 @@ import org.modelmapper.ModelMapper;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.BDDMockito.given;
 
 @ExtendWith(MockitoExtension.class)
@@ -19,6 +20,17 @@ public class ModelMapperTest {
 
     @Mock
     ModelMapper modelMapper;
+
+    @Test
+    void test3() {
+
+        given(modelMapper.map(any(), eq(Member.class)))
+                .willReturn(new Member("memberB"));
+
+        ReqMemberAddDto reqMemberAddDto = new ReqMemberAddDto("memberA");
+        Member member = modelMapper.map(reqMemberAddDto, Member.class);
+        assertThat(member.getMemberFnm()).isEqualTo("memberB");
+    }
 
     @Test
     void test2() {
