@@ -3,6 +3,7 @@ package com.example.mockitotest.arrayList;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.BDDMockito;
 import org.mockito.Mock;
 import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -10,6 +11,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.ArrayList;
 
 import static org.assertj.core.api.Assertions.*;
+import static org.mockito.BDDMockito.*;
 
 @ExtendWith(MockitoExtension.class)
 public class mock_vs_spy {
@@ -30,6 +32,11 @@ public class mock_vs_spy {
         mockList.add("bb");
         mockList.add("cc");
         assertThat(mockList.size()).isEqualTo(0);
+
+        // mocking 한대로 동작한다
+        given(mockList.size()).willReturn(-1);
+        mockList.add("dd");
+        assertThat(mockList.size()).isEqualTo(-1);
     }
 
     @Test
@@ -43,5 +50,11 @@ public class mock_vs_spy {
         spyList.add("bb");
         spyList.add("cc");
         assertThat(spyList.size()).isEqualTo(3);
+
+        spyList.add("dd");
+        assertThat(spyList.size()).isEqualTo(4);
+        // mocking 할 수 있다
+        given(spyList.size()).willReturn(-1);
+        assertThat(spyList.size()).isEqualTo(-1);
     }
 }

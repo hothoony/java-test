@@ -18,15 +18,6 @@ public class ArrayListTest_spy {
     ArrayList list;
 
     @Test
-    void test2() {
-
-        list.add("aa");
-        list.add("bb");
-        list.add("cc");
-        System.out.println("list.size() = " + list.size());
-    }
-
-    @Test
     void test1() {
 
         given(list.size()).willReturn(-1);
