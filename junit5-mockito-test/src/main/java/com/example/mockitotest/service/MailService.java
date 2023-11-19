@@ -6,6 +6,12 @@ import org.springframework.stereotype.Service;
 public class MailService {
 
     public void sendMail(String str) {
-        System.out.println("sendMail OK - " + str);
+        System.out.println("sendMail begin");
+        sendMessage(str);
+        System.out.println("sendMail end");
+    }
+
+    public void sendMessage(String str) {
+        System.out.println("sendMessage - " + str);
     }
 }
