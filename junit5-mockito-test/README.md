@@ -107,3 +107,24 @@ public class MailService {
 ```
 
 ## private method mocking
+
+Reflection 사용
+```java
+    @Test
+    void sendMessage_private_call1() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+
+        Method method = SmsService.class.getDeclaredMethod("sendMessage", String.class);
+        method.setAccessible(true);
+
+        method.invoke(smsService, "999");
+    }
+```
+
+ReflectionTestUtils 사용
+```java
+    @Test
+    void sendMessage_private_call2() {
+
+        ReflectionTestUtils.invokeMethod(smsService, "sendMessage", "999");
+    }
+```
