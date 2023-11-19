@@ -1,5 +1,6 @@
 package com.example.mockitotest.service.ext;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.BDDMockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.test.util.ReflectionTestUtils;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
+import static org.assertj.core.api.Assertions.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.*;
 
@@ -21,7 +23,10 @@ class SmsServiceTest {
     @Test
     void sendMessage_private_call2() {
 
-        ReflectionTestUtils.invokeMethod(smsService, "sendMessage", "999");
+        Object object = ReflectionTestUtils.invokeMethod(smsService, "sendMessage", "999");
+
+        String result = String.valueOf(object);
+        assertThat(result).isEqualTo("999");
     }
 
     @Test
@@ -30,7 +35,10 @@ class SmsServiceTest {
         Method method = SmsService.class.getDeclaredMethod("sendMessage", String.class);
         method.setAccessible(true);
 
-        method.invoke(smsService, "999");
+        Object object = method.invoke(smsService, "999");
+
+        String result = String.valueOf(object);
+        assertThat(result).isEqualTo("999");
     }
 
     @Test
