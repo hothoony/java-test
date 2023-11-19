@@ -1,8 +1,8 @@
-package com.example.mockitotest.arrayList;
+package com.example.mockitotest.mock_vs_spy.arrayList;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Spy;
+import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
@@ -12,9 +12,9 @@ import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 
 @ExtendWith(MockitoExtension.class)
-public class ArrayListTest_spy {
+public class ArrayListTest_mock {
 
-    @Spy
+    @Mock
     ArrayList list;
 
     @Test
@@ -25,7 +25,7 @@ public class ArrayListTest_spy {
         list.add(33);
         int size = list.size();
 
-        assertThat(size).isEqualTo(3);
+        assertThat(size).isEqualTo(0);
     }
 
     @Test
