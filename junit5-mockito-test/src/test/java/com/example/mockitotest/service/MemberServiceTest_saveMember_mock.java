@@ -5,13 +5,12 @@ import com.example.mockitotest.domain.MemberAgree;
 import com.example.mockitotest.dto.MemberAgreeDto;
 import com.example.mockitotest.dto.ReqMemberAddDto;
 import com.example.mockitotest.repository.MemberRepository;
-import org.assertj.core.api.AbstractThrowableAssert;
+import com.example.mockitotest.service.ext.MailService;
+import com.example.mockitotest.service.ext.SmsService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.BDDMockito;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.modelmapper.ModelMapper;
 
@@ -22,7 +21,6 @@ import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.BDDMockito.*;
 import static org.mockito.BDDMockito.given;
-import static org.mockito.BDDMockito.willCallRealMethod;
 import static org.mockito.BDDMockito.willDoNothing;
 
 @ExtendWith(MockitoExtension.class)

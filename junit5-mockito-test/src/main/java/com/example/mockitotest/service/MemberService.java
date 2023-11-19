@@ -2,9 +2,10 @@ package com.example.mockitotest.service;
 
 import com.example.mockitotest.domain.Member;
 import com.example.mockitotest.dto.MemberAgreeDto;
-import com.example.mockitotest.dto.MemberDto;
 import com.example.mockitotest.dto.ReqMemberAddDto;
 import com.example.mockitotest.repository.MemberRepository;
+import com.example.mockitotest.service.ext.MailService;
+import com.example.mockitotest.service.ext.SmsService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;

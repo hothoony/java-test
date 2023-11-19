@@ -106,3 +106,4 @@ public class MailService {
 }
 ```
 
+## private method mocking

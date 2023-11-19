@@ -1,4 +1,4 @@
-package com.example.mockitotest.service;
+package com.example.mockitotest.service.ext;
 
 import org.springframework.stereotype.Service;
 
@@ -12,6 +12,6 @@ public class MailService {
     }
 
     public void sendMessage(String str) {
-        System.out.println("sendMessage - " + str);
+        System.out.println("sendMail message - " + str);
     }
 }
