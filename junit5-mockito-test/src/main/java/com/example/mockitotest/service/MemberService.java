@@ -23,11 +23,13 @@ public class MemberService {
     private final SmsService smsService;
 
     public Member saveMember(ReqMemberAddDto reqMemberAddDto) {
-        
-        Member member = modelMapper.map(reqMemberAddDto, Member.class);
-        MemberAgreeDto memberAgreeDto = modelMapper.map(reqMemberAddDto, MemberAgreeDto.class);
 
+        findMemberByName(reqMemberAddDto.getMemberFnm());
+
+        Member member = modelMapper.map(reqMemberAddDto, Member.class);
         memberRepository.save(member);
+
+        MemberAgreeDto memberAgreeDto = modelMapper.map(reqMemberAddDto, MemberAgreeDto.class);
         memberAgreeService.saveMemberAgree(memberAgreeDto);
 
         mailService.sendMail("mail body content");
