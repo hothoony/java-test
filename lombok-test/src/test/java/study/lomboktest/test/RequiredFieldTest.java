@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 public class RequiredFieldTest {
 
     @Test
-    void test1() {
+    void personTest() {
 
         Person person = Person.builder()
 //                .name("james")
@@ -18,7 +18,7 @@ public class RequiredFieldTest {
     }
 
     @Test
-    void test2() {
+    void companyTest() {
 
         Company company = Company.builder()
                 .build();
