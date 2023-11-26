@@ -4,6 +4,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NonNull;
 import org.junit.jupiter.api.Test;
+import org.springframework.util.Assert;
+
+import static org.springframework.util.Assert.*;
 
 public class RequiredFieldTest {
 
@@ -42,6 +45,7 @@ public class RequiredFieldTest {
 
         @Builder
         public Company(String name) {
+//            notNull(name);
             this.name = name;
         }
     }
