@@ -11,7 +11,7 @@ public class RequiredFieldTest {
     void test1() {
 
         Person person = Person.builder()
-                .name("james")
+//                .name("james")
                 .build();
         System.out.println("person = " + person);
 
