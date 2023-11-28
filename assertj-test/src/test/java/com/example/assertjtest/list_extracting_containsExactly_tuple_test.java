@@ -1,7 +1,6 @@
 package com.example.assertjtest;
 
 import com.example.assertjtest.member.MemberDto;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -9,7 +8,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
 
-public class list_extracting_test {
+public class list_extracting_containsExactly_tuple_test {
 
 
     @Test
@@ -38,6 +37,17 @@ public class list_extracting_test {
 
         assertThat(memberDtos)
                 .extracting("age").containsExactlyInAnyOrder(10, 20, 30, 40, 50)
+        ;
+
+        assertThat(memberDtos)
+                .extracting("memberSeq", "age")
+                .containsExactly(
+                        tuple(1, 10),
+                        tuple(2, 50),
+                        tuple(3, 20),
+                        tuple(4, 40),
+                        tuple(5, 30)
+                )
         ;
     }
 }
