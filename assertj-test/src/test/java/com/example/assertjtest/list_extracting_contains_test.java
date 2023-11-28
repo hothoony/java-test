@@ -2,12 +2,11 @@ package com.example.assertjtest;
 
 import org.junit.jupiter.api.Test;
 
-import javax.swing.*;
 import java.util.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class list_test {
+public class list_extracting_contains_test {
 
     @Test
     void list_size_0() {
