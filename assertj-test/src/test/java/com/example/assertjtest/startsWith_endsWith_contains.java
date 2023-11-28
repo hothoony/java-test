@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class contains {
+public class startsWith_endsWith_contains {
 
     @Test
     void contains() {
