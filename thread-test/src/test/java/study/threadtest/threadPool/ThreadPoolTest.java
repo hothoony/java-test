@@ -28,6 +28,7 @@ public class ThreadPoolTest {
     }
 
     private Runnable job(String jobName, ThreadPoolExecutor executor) {
+        
         Runnable job = () -> {
             for (int no = 1; no <= 10; no++) {
                 sleep(500);
@@ -43,6 +44,7 @@ public class ThreadPoolTest {
     }
 
     private void executorInfo(ThreadPoolExecutor executor, int no) {
+        
         int poolSize = executor.getPoolSize();
         int maximumPoolSize = executor.getMaximumPoolSize();
         int corePoolSize = executor.getCorePoolSize();

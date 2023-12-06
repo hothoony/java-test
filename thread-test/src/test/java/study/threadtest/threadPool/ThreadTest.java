@@ -12,6 +12,7 @@ public class ThreadTest {
 
     @Test
     void test1() {
+        
         Runnable job = () -> {
             sleep(1000);
             for (int i = 1; i <= 10; i++) {
@@ -23,6 +24,7 @@ public class ThreadTest {
 
         Thread threadA = new Thread(job);
         threadA.setName("threadA");
+        
         Thread threadB = new Thread(job);
         threadB.setName("threadB");
         
