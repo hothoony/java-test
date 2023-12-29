@@ -11,7 +11,7 @@ public class ExecutorServiceTest {
     @Test
     void test1() {
 
-        int threadCount = 3;
+        int threadCount = 2;
 
         ExecutorService executorService = Executors.newFixedThreadPool(threadCount);
         System.out.println("executorService = " + executorService);
