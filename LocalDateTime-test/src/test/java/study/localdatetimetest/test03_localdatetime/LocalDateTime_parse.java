@@ -36,4 +36,18 @@ public class LocalDateTime_parse {
         LocalDateTime localDateTime = LocalDateTime.parse("2023-12-31 01:02:03", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         printLocalDateTime(localDateTime);
     }
+
+    @Test
+    void localDateTime_parse_pattern2() {
+        
+        LocalDate localDate = LocalDate.parse("20231231", DateTimeFormatter.ofPattern("yyyyMMdd"));
+        System.out.println("localDate = " + localDate);
+
+        // localDate 을 localDateTime 으로 변환하기
+        LocalDateTime localDateTime1 = localDate.atStartOfDay();
+        System.out.println("localDateTime1 = " + localDateTime1);
+
+        LocalDateTime localDateTime = LocalDateTime.parse("20231231" + " 000000", DateTimeFormatter.ofPattern("yyyyMMdd HHmmss"));
+        System.out.println("localDateTime = " + localDateTime);
+    }
 }
