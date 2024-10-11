@@ -1,6 +1,6 @@
 
 
-public class Test_basic {
+public class _Test {
     
     public static void main(String[] args) {
 
@@ -16,6 +16,6 @@ public class Test_basic {
     }
 
     private static void testCode() {
-        System.err.println("testCode execute");
+        
     }
 }
