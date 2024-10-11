@@ -1,5 +1,6 @@
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Test_LocalDate {
     
@@ -19,7 +20,8 @@ public class Test_LocalDate {
     private static void testCode() {
         
         for (int i = 0; i < 10; i++) {
-            System.out.println(LocalDate.now());
+            LocalDate localDate = LocalDate.now();
+            System.out.println(localDate + ", " + localDate.format(DateTimeFormatter.ofPattern("yyyyMMdd")));
         }
     }
 }
