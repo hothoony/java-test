@@ -23,15 +23,15 @@ public class GenericMethod {
     }
     
     public <T> List<T> getDtoList(String str, Class<T> clazz) {
-        List list = new ArrayList<>();
+        List<T> list = new ArrayList<>();
         if (clazz.isAssignableFrom(TeamDto.class)) { // HERE
-            list.add(new TeamDto(str));
+            list.add(clazz.cast(new TeamDto(str)));
         }
         else if (clazz.isAssignableFrom(MemberDto.class)) {
-            list.add(new MemberDto(str));
+            list.add(clazz.cast(new MemberDto(str)));
         }
         else {
-            list.add(new Object());
+            list.add(clazz.cast(new Object()));
         }
         return list;
     }
