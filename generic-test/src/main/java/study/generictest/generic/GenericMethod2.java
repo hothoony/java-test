@@ -21,14 +21,12 @@ public class GenericMethod2 {
     
     public <T> List<T> getDtoList(String str, Class<T> clazz) {
         List<T> list = new ArrayList<>();
-        if (clazz.isAssignableFrom(TeamDto.class)) { // HERE
-            list.add(clazz.cast(new TeamDto(str)));
-        }
-        else if (clazz.isAssignableFrom(MemberDto.class)) {
-            list.add(clazz.cast(new MemberDto(str)));
-        }
-        else {
-            list.add(clazz.cast(new Object()));
+        try {
+            Constructor<T> constructor = clazz.getConstructor(String.class);
+            T t = constructor.newInstance(str);
+            list.add(t);
+        } catch (NoSuchMethodException | InstantiationException | IllegalAccessException | InvocationTargetException e) {
+            throw new RuntimeException(e);
         }
         return list;
     }

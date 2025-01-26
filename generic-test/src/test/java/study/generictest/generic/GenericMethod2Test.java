@@ -22,9 +22,9 @@ public class GenericMethod2Test {
 
     @Test
     void getDto_memberDto() {
-        GenericMethod2 genericMethod = new GenericMethod2();
+        GenericMethod2 genericMethod2 = new GenericMethod2();
 
-        MemberDto memberDto = genericMethod.getDto("abc", MemberDto.class); // HERE
+        MemberDto memberDto = genericMethod2.getDto("abc", MemberDto.class); // HERE
 
         System.out.println("memberDto = " + memberDto);
         assertThat(memberDto.getClass()).isEqualTo(MemberDto.class);
@@ -32,15 +32,15 @@ public class GenericMethod2Test {
 
     @Test
     void getDtoList_teamDto() {
-        GenericMethod2 genericMethod = new GenericMethod2();
-        List<TeamDto> list = genericMethod.getDtoList("abc", TeamDto.class);
+        GenericMethod2 genericMethod2 = new GenericMethod2();
+        List<TeamDto> list = genericMethod2.getDtoList("abc", TeamDto.class);
         System.out.println("list = " + list);
     }
 
     @Test
     void getDtoList_memberDto() {
-        GenericMethod2 genericMethod = new GenericMethod2();
-        List<MemberDto> list = genericMethod.getDtoList("abc", MemberDto.class);
+        GenericMethod2 genericMethod2 = new GenericMethod2();
+        List<MemberDto> list = genericMethod2.getDtoList("abc", MemberDto.class);
         System.out.println("list = " + list);
     }
 }
