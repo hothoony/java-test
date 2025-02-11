@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
 
-public class System_time_test {
+public class System_millis_duplicate_test {
 
     @Test
     void test1() {
