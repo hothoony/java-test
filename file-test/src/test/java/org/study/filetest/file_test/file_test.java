@@ -37,6 +37,7 @@ public class file_test {
         System.out.println("isFileExist = " + isFileExist);
     }
 
+    // nfs 경로에 있는 파일을 읽을 경우, nfs 캐시 문제가 있을 수 있으므로 2개를 조합해서 사용한다
     public boolean isFileExist(String filePath) {
         boolean exists = (new File(filePath)).exists();
         boolean readable = Files.isReadable(Paths.get(filePath));
