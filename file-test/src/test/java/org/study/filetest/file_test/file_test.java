@@ -37,6 +37,15 @@ public class file_test {
         System.out.println("isFileExist = " + isFileExist);
     }
 
+    public boolean isFileExist(String filePath) {
+        boolean exists = (new File(filePath)).exists();
+        boolean readable = Files.isReadable(Paths.get(filePath));
+        if (!exists && readable) {
+            System.out.println("nfs 캐싱 문제일 수 있음");
+        }
+        return exists || readable;
+    }
+
     public boolean isFileExist_withIO(String filePath) {
         File file = new File(filePath);
         return file.exists();
