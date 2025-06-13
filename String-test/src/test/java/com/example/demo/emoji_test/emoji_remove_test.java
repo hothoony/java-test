@@ -5,9 +5,9 @@ import org.junit.jupiter.api.Test;
 public class emoji_remove_test {
 
     @Test
-    void test1() {
+    void removeEmoji_test() {
 
-        String[] samples = {
+        String[] strList = {
                 "1748830506807_� 제목 다기능 음식 합성기 � 부제 미래형 조리의 혁신 � 발표자 [너의 이름 입력] 배경 추천-0❤️✅❌.png",
                 "😀😂🎉",
                 "❤️✅❌",
@@ -16,7 +16,7 @@ public class emoji_remove_test {
                 "텍스트😊중간에❤️특수문자✨포함"
         };
 
-        for (String str : samples) {
+        for (String str : strList) {
             System.out.println();
             System.out.println("before : " + str);
             System.out.println("after  : " + removeEmoji(str));
