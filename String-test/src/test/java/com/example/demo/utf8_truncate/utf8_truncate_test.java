@@ -13,15 +13,15 @@ public class utf8_truncate_test {
 
         String str = "12345한글입니다abcde";
 
-        System.out.println("maxBytes 5 = " + truncateUtf8(str, 5));
-        System.out.println("maxBytes 10 = " + truncateUtf8(str, 10));
-        System.out.println("maxBytes 15 = " + truncateUtf8(str, 15));
+        System.out.println("maxBytes 5 = " + truncateUtf8Bytes(str, 5));
+        System.out.println("maxBytes 10 = " + truncateUtf8Bytes(str, 10));
+        System.out.println("maxBytes 15 = " + truncateUtf8Bytes(str, 15));
     }
 
     /**
      * 문자열을 UTF-8 기준으로 maxBytes 바이트까지 자름
      */
-    public static String truncateUtf8(String str, int maxBytes) {
+    public static String truncateUtf8Bytes(String str, int maxBytes) {
         if (str == null) return null;
 
         byte[] bytes = str.getBytes(StandardCharsets.UTF_8);
