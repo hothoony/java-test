@@ -21,7 +21,7 @@ public class utf8_truncate_test {
     /**
      * 문자열을 UTF-8 기준으로 maxBytes 바이트까지 자름
      */
-    private String truncateUtf8(String input, int maxBytes) {
+    public static String truncateUtf8(String input, int maxBytes) {
         if (input == null) return null;
 
         byte[] bytes = input.getBytes(StandardCharsets.UTF_8);
