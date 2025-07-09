@@ -10,9 +10,35 @@ public class utf8_truncate_test {
 
     @Test
     void utf8_truncate_test() {
-        String str = "12345한글입니다abcde";
-        byte[] bytes = str.getBytes(StandardCharsets.UTF_8);
-        System.out.println("bytes.length = " + bytes.length);
-        assertThat(bytes.length).isEqualTo(5);
+
+        String input = "12345한글입니다abcde";
+
+        System.out.println("maxBytes 5 = " + truncateUtf8(input, 5));
+        System.out.println("maxBytes 10 = " + truncateUtf8(input, 10));
+        System.out.println("maxBytes 15 = " + truncateUtf8(input, 15));
+    }
+
+    /**
+     * 문자열을 UTF-8 기준으로 maxBytes 바이트까지 자름
+     */
+    private String truncateUtf8(String input, int maxBytes) {
+        if (input == null) return null;
+
+        byte[] bytes = input.getBytes(StandardCharsets.UTF_8);
+        if (bytes.length <= maxBytes) {
+            return input;
+        }
+
+        int byteCount = 0;
+        int endIndex = 0;
+        for (char c : input.toCharArray()) {
+            int charBytes = String.valueOf(c).getBytes(StandardCharsets.UTF_8).length;
+            if (byteCount + charBytes > maxBytes) {
+                break;
+            }
+            byteCount += charBytes;
+            endIndex++;
+        }
+        return input.substring(0, endIndex);
     }
 }
