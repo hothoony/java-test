@@ -73,12 +73,20 @@ public class emoji_test1 {
         };
 
         for (String emojiString : emojiStringList) {
-            String removeResult = removeEmoji(emojiString);
+//            String removeResult = removeEmoji(emojiString);
+            String removeResult = removeEmoji2(emojiString);
             System.out.println();
             System.out.println("before : " + emojiString);
             System.out.println("after  : " + removeResult);
 //            assertThat(removeResult).isEmpty();
         }
+    }
+
+    public static String removeEmoji2(String str) {
+        if (str == null) return null;
+        return str
+                .replaceAll("[^\\p{L}\\p{N}\\p{P}\\p{Z}]", "")
+                .replaceAll("[\\p{S}]", "");
     }
 
     public static String removeEmoji(String str) {
