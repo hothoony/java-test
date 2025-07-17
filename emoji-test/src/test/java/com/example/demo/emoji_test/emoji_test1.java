@@ -91,16 +91,19 @@ public class emoji_test1 {
     public static String removeEmoji(String str) {
         if (str == null) return null;
 
-        // 이모지 제거 (\p{So} covers most)
+        // 이모지 범위 제거
         str = str.replaceAll("[\\p{So}]", "");
 
-        // 서식 문자, 제어 문자, 기타 문자 제거
+        // 플래그 이모지 제거 (2개의 regional indicator 조합)
+        str = str.replaceAll("[\uD83C][\uDDE6-\uDDFF]", "");
+
+        // 서식, 제어 문자 제거
         str = str.replaceAll("[\\p{Cf}\\p{Cntrl}\\p{C}]", "");
 
-        // Variation Selectors 제거 (U+FE00 ~ U+FE0F)
+        // Variation Selector 제거
         str = str.replaceAll("[\\uFE00-\\uFE0F]", "");
 
-        // Zero Width Joiner, Non-Joiner, Space 등 명시 제거
+        // ZWSP, ZWJ, WORD JOINER 제거
         str = str.replaceAll("[\\u200B-\\u200D\\u2060]", "");
 
         return str;
