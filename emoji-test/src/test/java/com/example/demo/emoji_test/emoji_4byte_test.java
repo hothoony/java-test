@@ -51,7 +51,9 @@ public class emoji_4byte_test {
                 "👨‍👩‍👧‍👦👨‍👨‍👧‍👧👩‍👩‍👦‍👦👨‍💻👩‍💻👨‍🚀👩‍🚀👨‍🏫👩‍🏫",
 
                 // 4바이트 이상 이모지 그룹2 (국기 및 지역 플래그)
-                "🇰🇷🇺🇸🇯🇵🇨🇳🇬🇧🇩🇪🇫🇷🇮🇹🇪🇸🇧🇷🇨🇦🇦🇺🇷🇺🇸🇬"
+                "🇰🇷🇺🇸🇯🇵🇨🇳🇬🇧🇩🇪🇫🇷🇮🇹🇪🇸🇧🇷🇨🇦🇦🇺🇷🇺🇸🇬",
+
+                "한글123abc,.!?'\"~@#$%^&*(){}[]<>+-/_=\\|"
         };
 
 
@@ -59,12 +61,20 @@ public class emoji_4byte_test {
         String[] list = emojiStringList;
 
         for (String emojiString : list) {
-            String removeResult = removeAllEmojis(emojiString);
+//            String removeResult = removeAllEmojis(emojiString);
+            String removeResult = keepBasicCharsOnly(emojiString);
             System.out.println();
             System.out.println("before : " + emojiString);
             System.out.println("after  : " + removeResult);
 //            assertThat(removeResult).isEmpty();
         }
+    }
+
+    public static String keepBasicCharsOnly(String text) {
+        if (text == null || text.isEmpty()) {
+            return text;
+        }
+        return text.replaceAll("[^\\p{IsHangul}\\p{IsLatin}\\p{IsDigit}\\s.,!?;:()\\[\\]{}\"'-]", "");
     }
 
     public static String removeAllEmojis(String input) {
