@@ -59,7 +59,7 @@ public class emoji_4byte_test {
         String[] list = emojiStringList;
 
         for (String emojiString : list) {
-            String removeResult = remove4ByteChars(emojiString);
+            String removeResult = removeAllEmojis(emojiString);
             System.out.println();
             System.out.println("before : " + emojiString);
             System.out.println("after  : " + removeResult);
@@ -67,15 +67,28 @@ public class emoji_4byte_test {
         }
     }
 
-    public static String remove4ByteChars(String str) {
-        if (str == null) return null;
-        return str.codePoints()
-                .filter(cp -> cp <= 0xFFFF)  // BMP 문자(3바이트 이하)만 허용
-                .collect(StringBuilder::new,
-                        StringBuilder::appendCodePoint,
-                        StringBuilder::append)
-                .toString();
+    public static String removeAllEmojis(String input) {
+        return input.replaceAll("[\\p{InEmoticons}\\p{InDingbats}\\p{InTransportAndMapSymbols}" +
+                "\\p{InMiscellaneousSymbolsAndPictographs}\\p{InSupplementalSymbolsAndPictographs}" +
+//                "\\p{InMiscellaneousSymbols}\\p{InSymbolsAndPictographsExtendedA}" +
+                "\\x{1F1E6}-\\x{1F1FF}" +  // 국기
+                "\\x{2700}-\\x{27BF}" +    // 기타
+                "\\x{1F900}-\\x{1F9FF}" +  // Supplemental
+                "\\x{1FA70}-\\x{1FAFF}" +  // Extended A
+                "\\x{1F300}-\\x{1F5FF}" +  // Misc Symbols
+                "\\x{1F600}-\\x{1F64F}" +  // 얼굴 이모지
+                "\\x{1F680}-\\x{1F6FF}" +  // 운송/지도
+                "\\x{1F700}-\\x{1F77F}" +  // Alchemical
+                "\\x{1F780}-\\x{1F7FF}" +  // Geometric
+                "\\x{1F800}-\\x{1F8FF}" +  // Supplemental arrows
+                "\\x{1F900}-\\x{1F9FF}" +  // Supplemental symbols and pictographs
+                "\\x{1FA00}-\\x{1FA6F}" +  // Chess symbols
+                "\\x{1FA70}-\\x{1FAFF}" +  // Extended A
+                "\\x{1FB00}-\\x{1FBFF}" +  // Extended B
+                "\\x{FE0F}" +              // Variation Selector-16
+                "]", "");
     }
+
 
     @Test
     void test2() {
