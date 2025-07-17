@@ -2,7 +2,7 @@ package com.example.demo.emoji_test;
 
 import org.junit.jupiter.api.Test;
 
-public class emoji_remove_test {
+public class emoji_test1 {
 
     @Test
     void removeEmoji_test() {
