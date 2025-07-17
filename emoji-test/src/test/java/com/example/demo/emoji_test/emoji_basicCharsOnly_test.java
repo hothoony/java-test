@@ -2,62 +2,78 @@ package com.example.demo.emoji_test;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.regex.Pattern;
+
 public class emoji_basicCharsOnly_test {
 
     @Test
     void removeEmoji_test() {
 
-        String[] emojiStringList = {
-
-                // 1~2바이트 이모지 그룹1 (단순 특수기호, 체크/별표/삼각형 등)
-                "★☆✓✔✘✖✳❇‼⁉※〒",
-
-                // 1~2바이트 이모지 그룹2 (심볼, 박스, 음표 등 – 시각 강조용)
-                "■□▲▼◆◇▶◀♬♪♩♫♭♯",
-
-                // 3바이트 이모지 그룹1 (기본 UI용 상징 – 이메일, 전화, 날씨, 주의 등)
-                "✉☎☏☀☁☂☃☔⚡☕⏰⌛⌚⚠⚠️☠",
-
-                // 3바이트 이모지 그룹2 (기본 하트, 화살표, 기타 정보 마크)
-                "❤❣💢💬💭💤➕➖➗✔️❌✅🔺🔻🔸🔹",
-
-                // 4바이트 이모지 그룹1 (피드백/반응 – 얼굴, 손 제스처 등)
-                "😀😁😂🤣😃😄😅😆😉😊😋😎😍😘🥰🙂🤗🤔😐😶",
-                "👍👎🙏👏🙌🖐️✋🤚👌✌️🤞🤙🤟🤘",
-
-                // 4바이트 이모지 그룹2 (실무 표현 – 알림, 경고, 정보 등)
-                "📢📣🔔🔕🚨📣🆗🆘🆙🆒🆓🆕🆖🅿️🈁🈯️💡",
-
-                // 4바이트 이모지 그룹3 (마케팅/공지 – 선물, 파티, 배너용)
-                "🎁🎈🎉🎊🎂🎀🎆🎇🎄🎃🎋🪅✨💝💘",
-
-                // 4바이트 이모지 그룹4 (상태/작업 진행 – 시간, 캘린더, 체크)
-                "🕒🕐🕙🕛⏰⏳⌛📅📆📝✏️✅🔄🔃🔁",
-
-                // 4바이트 이모지 그룹5 (금융/비즈니스 – 돈, 카드, 화폐, 차트 등)
-                "💰💳💲💸📈📉📊💹🪙💷💶💴💵",
-
-                // 4바이트 이모지 그룹6 (음식/휴식 – 카페, 음식 아이콘)
-                "☕🍰🍩🍔🍟🍕🌭🥪🍱🍣🍛🥗🍜🍙🍚🍞",
-
-                // 4바이트 이모지 그룹7 (이동수단/날씨/여행 – 위치, 교통)
-                "🚗🚕🚙🚌🚎🚓🚑🚒🚨🚀✈️🛫🛬🛳⛴🌧️🌤️🌦️",
-
-                // 4바이트 이모지 그룹8 (사용자 아바타용 – 사람/직업 이모지)
-                "👨👩🧑👧👦👶🧒👵👴🧓👮‍♀️👮‍♂️👨‍⚕️👩‍⚕️👨‍🏫👩‍🏫",
-
-                // 4바이트 이상 이모지 그룹1 (ZWJ 조합 – 가족, 직업)
-                "👨‍👩‍👧‍👦👨‍👨‍👧‍👧👩‍👩‍👦‍👦👨‍💻👩‍💻👨‍🚀👩‍🚀👨‍🏫👩‍🏫",
-
-                // 4바이트 이상 이모지 그룹2 (국기 및 지역 플래그)
-                "🇰🇷🇺🇸🇯🇵🇨🇳🇬🇧🇩🇪🇫🇷🇮🇹🇪🇸🇧🇷🇨🇦🇦🇺🇷🇺🇸🇬",
-
-                "한글123abc,.!?'\"~@#$%^&*(){}[]<>+-/_=\\|"
+        String[] helloList = {
+                "안녕하세요",       // Korean
+                "Hello",          // English
+                "こんにちは",      // Japanese
+                "你好",           // Chinese Simplified
+                "你好",           // Chinese Traditional
+                "Hola",           // Spanish
+                "Bonjour",        // French
+                "Hallo",          // German
+                "Здравствуйте",   // Russian
+                "مرحباً",         // Arabic
+                "नमस्ते",          // Hindi
+                "Ciao",           // Italian
+                "Olá",            // Portuguese
+                "Xin chào",       // Vietnamese
+                "สวัสดี",          // Thai
+                "Halo",           // Indonesian
+                "Hej",            // Swedish
+                "Salve",          // Latin
+                "Hei",            // Norwegian
+                "Ahoj",           // Czech
+                "שלום",           // Hebrew
+                "नमस्कार",          // Marathi
+                "Selamat",        // Malay
+                "Kamusta",        // Filipino
+                "Sziasztok",      // Hungarian (plural)
+                "Szia",           // Hungarian (informal)
+                "Goddag",         // Danish
+                "Salaam",         // Persian (Farsi)
+                "Saluton",        // Esperanto
+                "Tere",           // Estonian
+                "Labas",          // Lithuanian
+                "Dzień dobry",    // Polish
+                "Salut",          // Romanian
+                "Здраво",          // Macedonian
+                "Merhaba",        // Turkish
+                "Sannu",          // Hausa
+                "Nde-ewo",        // Igbo
+                "Mhoro",          // Shona
+                "Molo",           // Xhosa
+                "Bula",           // Fijian
+                "Sawubona",       // Zulu
+                "Hallo",          // Afrikaans
+                "Dia dhuit",      // Irish
+                "Bună ziua",      // Romanian
+                "Sveiki",         // Latvian
+                "Здравейте",       // Bulgarian
+                "Salam",          // Azerbaijani
+                "Kam na ma",      // Burmese
+                "Habari",         // Swahili
+                "Moïen",          // Luxembourgish
+                "Hej",            // Faroese
+                "Aloha",          // Hawaiian
+                "Kumusta",        // Tagalog (Filipino)
+                "Selam",          // Amharic
+                "Namaste",        // Nepali
+                "Vanakkam",       // Tamil
+                "Namaskara",      // Kannada
+                "Sat Sri Akal",   // Punjabi
+                "Asalaam alaikum", // Urdu
+                "~!@#$%^&*(){}[]<>+-/|\\'\",.:;",
         };
 
 
-//        String[] list = EmojiDto.emojiStringList;
-        String[] list = emojiStringList;
+        String[] list = helloList;
 
         for (String emojiString : list) {
             String removeResult = basicCharsOnly(emojiString);
@@ -72,6 +88,7 @@ public class emoji_basicCharsOnly_test {
         if (text == null || text.isEmpty()) {
             return text;
         }
-        return text.replaceAll("[^\\p{IsHangul}\\p{IsLatin}\\p{IsDigit}\\s.,!?;:()\\[\\]{}\"'-]", "");
+//        return text.replaceAll("[^\\p{IsHangul}\\p{IsLatin}\\p{IsDigit}\\s.,!?;:()\\[\\]{}\"'-]", "");
+        return text.replaceAll("[^\\p{IsHangul}\\p{IsLatin}\\p{IsDigit}]", "");
     }
 }
