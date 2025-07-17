@@ -86,7 +86,9 @@ public class emoji_test1 {
         if (str == null) return null;
         return str
                 .replaceAll("[^\\p{L}\\p{N}\\p{P}\\p{Z}]", "")
-                .replaceAll("[\\p{S}]", "");
+                .replaceAll("[\\p{S}]", "")
+                .replaceAll("\\p{InEnclosedAlphanumericSupplement}", "")
+                ;
     }
 
     public static String removeEmoji(String str) {
