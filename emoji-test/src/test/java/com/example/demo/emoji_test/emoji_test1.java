@@ -1,6 +1,9 @@
 package com.example.demo.emoji_test;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.*;
 
 public class emoji_test1 {
 
@@ -70,9 +73,11 @@ public class emoji_test1 {
         };
 
         for (String emojiString : emojiStringList) {
+            String removeResult = removeEmoji(emojiString);
             System.out.println();
             System.out.println("before : " + emojiString);
-            System.out.println("after  : " + removeEmoji(emojiString));
+            System.out.println("after  : " + removeResult);
+            assertThat(removeResult).isEmpty();
         }
     }
 
