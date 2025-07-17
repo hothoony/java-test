@@ -81,10 +81,10 @@ public class emoji_test1 {
                 "🧙‍♂️🧝‍♀️🧛‍♂️🧞‍♂️🧜‍♀️🧚‍♂️🧟‍♀️🧌"
         };
 
-        for (String str : emojiStringList) {
+        for (String emojiString : emojiStringList) {
             System.out.println();
-            System.out.println("before : " + str);
-            System.out.println("after  : " + removeEmoji(str));
+            System.out.println("before : " + emojiString);
+            System.out.println("after  : " + removeEmoji(emojiString));
         }
     }
 
