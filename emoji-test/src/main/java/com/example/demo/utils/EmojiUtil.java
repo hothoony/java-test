@@ -17,10 +17,10 @@ public class EmojiUtil {
 
             // U+0000 ~ U+FFFF : BMP (Basic Multilingual Plane) 영역까지만 허용 (UTF-8 최대 3바이트)
             if (codePoint <= 0xFFFF) {
-                System.out.println("codePoint 포함 = " + codePoint);
+//                System.out.println("codePoint 포함 = " + codePoint);
                 sb.appendCodePoint(codePoint);
             } else {
-                System.err.println("codePoint 제거 = " + codePoint);
+//                System.err.println("codePoint 제거 = " + codePoint);
             }
 
             i += Character.charCount(codePoint);
