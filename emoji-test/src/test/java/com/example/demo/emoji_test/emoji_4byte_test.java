@@ -60,7 +60,7 @@ public class emoji_4byte_test {
         String[] list = emojiStringList;
 
         for (String emojiString : list) {
-            String removeResult = removeAllEmojis(emojiString);
+            String removeResult = removeEmoji(emojiString);
             System.out.println();
             System.out.println("before : " + emojiString);
             System.out.println("after  : " + removeResult);
@@ -68,7 +68,7 @@ public class emoji_4byte_test {
         }
     }
 
-    public static String removeAllEmojis(String input) {
+    public static String removeEmoji(String input) {
         return input.replaceAll("[\\p{InEmoticons}\\p{InDingbats}\\p{InTransportAndMapSymbols}" +
                 "\\p{InMiscellaneousSymbolsAndPictographs}\\p{InSupplementalSymbolsAndPictographs}" +
 //                "\\p{InMiscellaneousSymbols}\\p{InSymbolsAndPictographsExtendedA}" +
