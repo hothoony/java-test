@@ -56,6 +56,7 @@ public class Mydb1Config {
         System.out.println("jpaProperties = " + jpaProperties);
 
         Map<String, String> vendorProperties = jpaProperties.getProperties();
+        vendorProperties.put("hibernate.hbm2ddl.auto", "update");
 //        vendorProperties.put("hibernate.hbm2ddl.auto", jpaProperties.getHibernate().getDdlAuto());
         System.out.println("vendorProperties = " + vendorProperties);
 
