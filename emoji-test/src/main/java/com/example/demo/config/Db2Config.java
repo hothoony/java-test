@@ -31,19 +31,19 @@ public class Db2Config {
 
     @Bean
     public LocalContainerEntityManagerFactoryBean db2EntityManagerFactory() {
-        LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
-        em.setDataSource(db2DataSource());
-        em.setPackagesToScan("com.example.demo.domain");
+        LocalContainerEntityManagerFactoryBean entityManager = new LocalContainerEntityManagerFactoryBean();
+        entityManager.setDataSource(db2DataSource());
+        entityManager.setPackagesToScan("com.example.demo.domain");
         
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-        em.setJpaVendorAdapter(vendorAdapter);
+        entityManager.setJpaVendorAdapter(vendorAdapter);
         
         HashMap<String, Object> properties = new HashMap<>();
         properties.put("hibernate.hbm2ddl.auto", "update");
         properties.put("hibernate.dialect", "org.hibernate.dialect.MariaDBDialect");
-        em.setJpaPropertyMap(properties);
+        entityManager.setJpaPropertyMap(properties);
 
-        return em;
+        return entityManager;
     }
 
     @Bean
