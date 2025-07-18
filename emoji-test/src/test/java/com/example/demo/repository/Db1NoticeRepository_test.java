@@ -5,18 +5,20 @@ import com.example.demo.repository.db1.Db1NoticeRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Commit;
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
+@Transactional
 class Db1NoticeRepository_test {
 
     @Autowired
     private Db1NoticeRepository db1NoticeRepository;
 
+    @Commit
     @Test
-    @Transactional
     void testDb1() {
         // given
         NoticeEntity notice = new NoticeEntity();
