@@ -45,7 +45,7 @@ public class Db1Config {
 
         return builder
                 .dataSource(dataSource)
-                .packages("com.example.demo.domain")
+                .packages("com.example.demo.repository.db1")
                 .persistenceUnit("mydb1")
                 .properties(properties)
                 .build();
