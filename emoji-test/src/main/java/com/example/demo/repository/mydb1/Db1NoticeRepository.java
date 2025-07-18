@@ -1,4 +1,4 @@
-package com.example.demo.repository.db1;
+package com.example.demo.repository.mydb1;
 
 import com.example.demo.domain.NoticeEntity;
 import org.springframework.data.jpa.repository.JpaRepository;

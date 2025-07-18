@@ -5,6 +5,16 @@ mydb1:
     jdbc-url: jdbc:mariadb://192.168.1.28:3306/mydb_utf8mb4?useUnicode=true&characterEncoding=utf8mb4
     username: root
     password: testDB1234
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MariaDBDialect
+        format_sql: true
+        use_sql_comments: false
+    show-sql: false
+    open-in-view: false
 
 mydb2:
   datasource:
@@ -12,8 +22,6 @@ mydb2:
     jdbc-url: jdbc:mariadb://192.168.1.28:3306/mydb_utf8?useUnicode=true&characterEncoding=utf8
     username: root
     password: testDB1234
-
-spring:
   jpa:
     hibernate:
       ddl-auto: create

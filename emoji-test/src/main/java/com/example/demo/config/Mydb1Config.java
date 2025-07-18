@@ -11,7 +11,6 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
-import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 
 import javax.sql.DataSource;
@@ -20,42 +19,44 @@ import java.util.Map;
 
 @Configuration
 @EnableJpaRepositories(
-        basePackages = "com.example.demo.repository.db1",
-        entityManagerFactoryRef = "mydb2EntityManagerFactory",
-        transactionManagerRef = "mydb2TransactionManager"
+        basePackages = "com.example.demo.repository.mydb1",
+        entityManagerFactoryRef = "mydb1EntityManagerFactory",
+        transactionManagerRef = "mydb1TransactionManager"
 )
-public class Db2Config {
+public class Mydb1Config {
 
     @Primary
-    @Bean(name = "mydb2DataSource")
-    @ConfigurationProperties("spring.datasource.mydb2")
-    public DataSource mydb2DataSource() {
+    @Bean(name = "mydb1DataSource")
+    @ConfigurationProperties("mydb1.datasource")
+    public DataSource mydb1DataSource() {
         return DataSourceBuilder.create().build();
     }
 
     @Primary
-    @Bean(name = "mydb2EntityManagerFactory")
-    public LocalContainerEntityManagerFactoryBean mydb2EntityManagerFactory(
+    @Bean(name = "mydb1EntityManagerFactory")
+    public LocalContainerEntityManagerFactoryBean mydb1EntityManagerFactory(
             EntityManagerFactoryBuilder builder,
-            @Qualifier("mydb2DataSource") DataSource dataSource) {
+            @Qualifier("mydb1DataSource") DataSource dataSource) {
 
         Map<String, Object> properties = new HashMap<>();
         properties.put("hibernate.hbm2ddl.auto", "create");
         properties.put("hibernate.dialect", "org.hibernate.dialect.MariaDBDialect");
         properties.put("hibernate.format_sql", true);
+        properties.put("hibernate.use_sql_comments", false);
+        properties.put("hibernate.show_sql", false);
 
         return builder
                 .dataSource(dataSource)
-                .packages("com.example.demo.repository.db2")
-                .persistenceUnit("mydb2")
+                .packages("com.example.entity")
+                .persistenceUnit("mydb1")
                 .properties(properties)
                 .build();
     }
 
     @Primary
-    @Bean(name = "mydb2TransactionManager")
-    public PlatformTransactionManager mydb2TransactionManager(
-            @Qualifier("mydb2EntityManagerFactory") EntityManagerFactory entityManagerFactory) {
+    @Bean(name = "mydb1TransactionManager")
+    public PlatformTransactionManager mydb1TransactionManager(
+            @Qualifier("mydb1EntityManagerFactory") EntityManagerFactory entityManagerFactory) {
         return new JpaTransactionManager(entityManagerFactory);
     }
 }

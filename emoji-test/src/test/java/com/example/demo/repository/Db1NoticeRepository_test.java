@@ -1,7 +1,7 @@
 package com.example.demo.repository;
 
 import com.example.demo.domain.NoticeEntity;
-import com.example.demo.repository.db1.Db1NoticeRepository;
+import com.example.demo.repository.mydb1.Db1NoticeRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
