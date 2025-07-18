@@ -21,36 +21,6 @@ class MultiDbNoticeRepositoryTests {
 
     @Test
     @Transactional
-    void testInsertNoticeToDb1() {
-        // given
-        NoticeEntity notice = new NoticeEntity();
-        notice.setNoticeTitle("DB1 공지사항");
-
-        // when
-        NoticeEntity savedNotice = db1NoticeRepository.save(notice);
-
-        // then
-        assertThat(savedNotice.getNoticeId()).isNotNull();
-        assertThat(savedNotice.getNoticeTitle()).isEqualTo("DB1 공지사항");
-    }
-
-    @Test
-    @Transactional
-    void testInsertNoticeToDb2() {
-        // given
-        NoticeEntity notice = new NoticeEntity();
-        notice.setNoticeTitle("DB2 공지사항");
-
-        // when
-        NoticeEntity savedNotice = db2NoticeRepository.save(notice);
-
-        // then
-        assertThat(savedNotice.getNoticeId()).isNotNull();
-        assertThat(savedNotice.getNoticeTitle()).isEqualTo("DB2 공지사항");
-    }
-
-    @Test
-    @Transactional
     void testInsertNoticeToBothDatabases() {
         // given
         NoticeEntity notice1 = new NoticeEntity();
