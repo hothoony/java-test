@@ -1,8 +1,9 @@
 package com.example.demo.config;
 
-import com.zaxxer.hikari.HikariDataSource;
 import jakarta.persistence.EntityManagerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.autoconfigure.orm.jpa.HibernateProperties;
+import org.springframework.boot.autoconfigure.orm.jpa.HibernateSettings;
 import org.springframework.boot.autoconfigure.orm.jpa.JpaProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
@@ -30,19 +31,21 @@ public class Mydb1Config {
     @Bean(name = "mydb1DataSource")
     @ConfigurationProperties("mydb1.datasource")
     public DataSource mydb1DataSource() {
-        DataSourceBuilder<?> dataSourceBuilder = DataSourceBuilder.create();
-        DataSource dataSource = dataSourceBuilder.build();
-        System.out.println("dataSource = " + dataSource);
-        return dataSource;
+        return DataSourceBuilder.create().build();
     }
 
     @Primary
     @Bean(name = "mydb1JpaProperties")
     @ConfigurationProperties(prefix = "mydb1.jpa")
     public JpaProperties mydb1JpaProperties() {
-        JpaProperties jpaProperties = new JpaProperties();
-        System.out.println("jpaProperties = " + jpaProperties);
-        return jpaProperties;
+        return new JpaProperties();
+    }
+
+    @Primary
+    @Bean(name = "mydb1HibernateProperties")
+    @ConfigurationProperties(prefix = "mydb1.jpa.hibernate")
+    public HibernateProperties mydb1HibernateProperties() {
+        return new HibernateProperties();
     }
 
     @Primary
@@ -50,15 +53,11 @@ public class Mydb1Config {
     public LocalContainerEntityManagerFactoryBean mydb1EntityManagerFactory(
             EntityManagerFactoryBuilder builder,
             @Qualifier("mydb1DataSource") DataSource dataSource,
-            @Qualifier("mydb1JpaProperties") JpaProperties jpaProperties) {
+            @Qualifier("mydb1JpaProperties") JpaProperties jpaProperties,
+            @Qualifier("mydb1HibernateProperties") HibernateProperties hibernateProperties) {
 
-        System.out.println("dataSource = " + dataSource);
-        System.out.println("jpaProperties = " + jpaProperties);
-
-        Map<String, String> vendorProperties = jpaProperties.getProperties();
-        vendorProperties.put("hibernate.hbm2ddl.auto", "update");
-//        vendorProperties.put("hibernate.hbm2ddl.auto", jpaProperties.getHibernate().getDdlAuto());
-        System.out.println("vendorProperties = " + vendorProperties);
+        Map<String, Object> vendorProperties = hibernateProperties.determineHibernateProperties(
+                jpaProperties.getProperties(), new HibernateSettings());
 
         return builder
                 .dataSource(dataSource)
