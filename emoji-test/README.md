@@ -22,3 +22,23 @@
 | 14            | Supplementary Special-purpose Plane (SSP) | U+E0000 \~ U+EFFFF   | 특수 용도 문자 (예: 태그 문자)  |
 | 15            | Private Use Area Plane 15                 | U+F0000 \~ U+FFFFF   | 개인 용도 영역             |
 | 16            | Private Use Area Plane 16                 | U+100000 \~ U+10FFFF | 개인 용도 영역             |
+
+## 데이터베이스 생성
+- db1, utf8mb4
+```sql
+CREATE DATABASE mydb_utf8mb4 CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+
+CREATE TABLE mydb_utf8mb4.tb_notice (
+    notice_id INT PRIMARY KEY,
+    notice_title VARCHAR(255)
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+```
+- db2, utf8
+```sql
+CREATE DATABASE mydb_utf8 CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+CREATE TABLE mydb_utf8.tb_notice (
+    notice_id INT PRIMARY KEY,
+    notice_title VARCHAR(255)
+) CHARACTER SET utf8 COLLATE utf8_general_ci;
+```
