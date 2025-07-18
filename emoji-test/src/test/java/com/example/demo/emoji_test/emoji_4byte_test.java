@@ -68,8 +68,8 @@ public class emoji_4byte_test {
         }
     }
 
-    public static String removeEmoji(String input) {
-        return input.replaceAll("[\\p{InEmoticons}\\p{InDingbats}\\p{InTransportAndMapSymbols}" +
+    public static String removeEmoji(String str) {
+        return str.replaceAll("[\\p{InEmoticons}\\p{InDingbats}\\p{InTransportAndMapSymbols}" +
                 "\\p{InMiscellaneousSymbolsAndPictographs}\\p{InSupplementalSymbolsAndPictographs}" +
 //                "\\p{InMiscellaneousSymbols}\\p{InSymbolsAndPictographsExtendedA}" +
                 "\\x{1F1E6}-\\x{1F1FF}" +  // 국기
