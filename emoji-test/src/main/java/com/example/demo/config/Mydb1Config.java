@@ -2,6 +2,7 @@ package com.example.demo.config;
 
 import jakarta.persistence.EntityManagerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.autoconfigure.orm.jpa.JpaProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
@@ -14,7 +15,6 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
 
 import javax.sql.DataSource;
-import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
@@ -33,23 +33,32 @@ public class Mydb1Config {
     }
 
     @Primary
+    @Bean(name = "mydb1JpaProperties")
+    @ConfigurationProperties(prefix = "mydb1.jpa")
+    public JpaProperties mydb1JpaProperties() {
+        JpaProperties jpaProperties = new JpaProperties();
+        System.out.println("jpaProperties = " + jpaProperties);
+        return jpaProperties;
+    }
+
+    @Primary
     @Bean(name = "mydb1EntityManagerFactory")
     public LocalContainerEntityManagerFactoryBean mydb1EntityManagerFactory(
             EntityManagerFactoryBuilder builder,
-            @Qualifier("mydb1DataSource") DataSource dataSource) {
+            @Qualifier("mydb1DataSource") DataSource dataSource,
+            @Qualifier("mydb1JpaProperties") JpaProperties jpaProperties) {
 
-        Map<String, Object> properties = new HashMap<>();
-        properties.put("hibernate.hbm2ddl.auto", "create");
-        properties.put("hibernate.dialect", "org.hibernate.dialect.MariaDBDialect");
-        properties.put("hibernate.format_sql", true);
-        properties.put("hibernate.use_sql_comments", false);
-        properties.put("hibernate.show_sql", false);
+        System.out.println("dataSource = " + dataSource);
+        System.out.println("jpaProperties = " + jpaProperties);
+
+        Map<String, String> vendorProperties = jpaProperties.getProperties();
+//        vendorProperties.put("hibernate.hbm2ddl.auto", jpaProperties.getHibernate().getDdlAuto());
 
         return builder
                 .dataSource(dataSource)
                 .packages("com.example.demo.domain")
                 .persistenceUnit("mydb1")
-                .properties(properties)
+                .properties(vendorProperties)
                 .build();
     }
 

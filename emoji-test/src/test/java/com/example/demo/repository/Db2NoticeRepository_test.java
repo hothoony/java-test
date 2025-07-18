@@ -21,14 +21,14 @@ class Db2NoticeRepository_test {
     @Test
     void testDb2() {
         // given
-        NoticeEntity notice = new NoticeEntity();
-        notice.setNoticeTitle("DB1 공지사항");
+        NoticeEntity noticeEntity = new NoticeEntity();
+        noticeEntity.setNoticeTitle("DB1 공지사항");
 
         // when
-        NoticeEntity savedNotice = db2NoticeRepository.save(notice);
+        NoticeEntity savedNoticeEntity = db2NoticeRepository.save(noticeEntity);
 
         // then
-        assertThat(savedNotice.getNoticeId()).isNotNull();
-        assertThat(savedNotice.getNoticeTitle()).isEqualTo("DB2 공지사항");
+        assertThat(savedNoticeEntity.getNoticeId()).isNotNull();
+        assertThat(savedNoticeEntity.getNoticeTitle()).isEqualTo("DB2 공지사항");
     }
 }
