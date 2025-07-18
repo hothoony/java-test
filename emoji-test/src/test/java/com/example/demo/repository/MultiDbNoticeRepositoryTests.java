@@ -25,8 +25,8 @@ class MultiDbNoticeRepositoryTests {
     @Test
     void testInsertNoticeToBothDatabases() {
 
-        String emoji3Bytes = "DB 공지사항 😀😂😍😢😎 이모지 테스트" // 3바이트 이모지
-        String emoji4Bytes = "DB 공지사항 👨‍👩‍👧‍👦🧑🏽🧑‍💻🏳️‍🌈🧑‍ 이모지 테스트" // 4바이트 이모지
+        String emoji3Bytes = "DB 공지사항 😀😂😍😢😎 이모지 테스트"; // 3바이트 이모지
+        String emoji4Bytes = "DB 공지사항 👨‍👩‍👧‍👦🧑🏽🧑‍💻🏳️‍🌈🧑‍ 이모지 테스트"; // 4바이트 이모지
 
         String str = emoji3Bytes;
 
