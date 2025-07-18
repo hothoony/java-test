@@ -1,5 +1,6 @@
 package com.example.demo.config;
 
+import com.zaxxer.hikari.HikariDataSource;
 import jakarta.persistence.EntityManagerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.orm.jpa.JpaProperties;
@@ -29,7 +30,10 @@ public class Mydb1Config {
     @Bean(name = "mydb1DataSource")
     @ConfigurationProperties("mydb1.datasource")
     public DataSource mydb1DataSource() {
-        return DataSourceBuilder.create().build();
+        DataSourceBuilder<?> dataSourceBuilder = DataSourceBuilder.create();
+        DataSource dataSource = dataSourceBuilder.build();
+        System.out.println("dataSource = " + dataSource);
+        return dataSource;
     }
 
     @Primary
