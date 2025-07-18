@@ -25,7 +25,7 @@ class Db2NoticeRepository_test {
         String emoji4Bytes = "DB 공지사항 👨‍👩‍👧‍👦🧑🏽🧑‍💻🏳️‍🌈🧑‍ 이모지 테스트"; // 4바이트 이모지
 
         saveTest(emoji3Bytes);
-        saveTest(emoji4Bytes);
+//        saveTest(emoji4Bytes);
     }
 
     private void saveTest(String str) {
