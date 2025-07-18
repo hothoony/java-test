@@ -13,6 +13,7 @@ mydb1:
         dialect: org.hibernate.dialect.MariaDBDialect
         format_sql: true
         use_sql_comments: false
+        physical-strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
     show-sql: false
     open-in-view: false
 
@@ -30,6 +31,7 @@ mydb2:
         dialect: org.hibernate.dialect.MariaDBDialect
         format_sql: true
         use_sql_comments: false
+        physical-strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
     show-sql: false
     open-in-view: false
 
