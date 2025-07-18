@@ -2,9 +2,9 @@
 spring:
   datasource:
 #    driver-class-name: org.mariadb.jdbc.Driver
-#    url:
-#    username:
-#    password:
+#    url: jdbc:mariadb://192.168.1.28:3306/mydb_utf8mb4?useUnicode=true&characterEncoding=utf8mb4
+#    username: root
+#    password: testDB1234
     mydb1:
       driver-class-name: org.mariadb.jdbc.Driver
       url: jdbc:mariadb://192.168.1.28:3306/mydb_utf8mb4?useUnicode=true&characterEncoding=utf8mb4
