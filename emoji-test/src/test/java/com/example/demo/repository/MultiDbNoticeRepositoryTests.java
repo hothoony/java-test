@@ -24,12 +24,18 @@ class MultiDbNoticeRepositoryTests {
     @Commit
     @Test
     void testInsertNoticeToBothDatabases() {
+
+        String emoji3Bytes = "DB 공지사항 😀😂😍😢😎 이모지 테스트" // 3바이트 이모지
+        String emoji4Bytes = "DB 공지사항 👨‍👩‍👧‍👦🧑🏽🧑‍💻🏳️‍🌈🧑‍ 이모지 테스트" // 4바이트 이모지
+
+        String str = emoji3Bytes;
+
         // given
         NoticeEntity notice1 = new NoticeEntity();
-        notice1.setNoticeTitle("DB1 공지사항 11");
+        notice1.setNoticeTitle(str);
 
         NoticeEntity notice2 = new NoticeEntity();
-        notice2.setNoticeTitle("DB2 공지사항 22");
+        notice2.setNoticeTitle(str);
 
         // when
         NoticeEntity savedNotice1 = db1NoticeRepository.save(notice1);
@@ -38,7 +44,7 @@ class MultiDbNoticeRepositoryTests {
         // then
         assertThat(savedNotice1.getNoticeId()).isNotNull();
         assertThat(savedNotice2.getNoticeId()).isNotNull();
-        assertThat(savedNotice1.getNoticeTitle()).isEqualTo("DB1 공지사항 11");
-        assertThat(savedNotice2.getNoticeTitle()).isEqualTo("DB2 공지사항 22");
+        assertThat(savedNotice1.getNoticeTitle()).isEqualTo(str);
+        assertThat(savedNotice2.getNoticeTitle()).isEqualTo(str);
     }
 }
