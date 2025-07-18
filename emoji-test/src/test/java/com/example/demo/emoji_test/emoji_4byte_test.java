@@ -60,7 +60,7 @@ public class emoji_4byte_test {
         String[] list = emojiStringList;
 
         for (String emojiString : list) {
-            String removeResult = removeEmoji(emojiString);
+            String removeResult = remove4ByteChars(emojiString);
             System.out.println();
             System.out.println("before : " + emojiString);
             System.out.println("after  : " + removeResult);
@@ -68,25 +68,30 @@ public class emoji_4byte_test {
         }
     }
 
-    public static String removeEmoji(String str) {
-        return str.replaceAll("[\\p{InEmoticons}\\p{InDingbats}\\p{InTransportAndMapSymbols}" +
-                "\\p{InMiscellaneousSymbolsAndPictographs}\\p{InSupplementalSymbolsAndPictographs}" +
-//                "\\p{InMiscellaneousSymbols}\\p{InSymbolsAndPictographsExtendedA}" +
-                "\\x{1F1E6}-\\x{1F1FF}" +  // 국기
-                "\\x{2700}-\\x{27BF}" +    // 기타
-                "\\x{1F900}-\\x{1F9FF}" +  // Supplemental
-                "\\x{1FA70}-\\x{1FAFF}" +  // Extended A
-                "\\x{1F300}-\\x{1F5FF}" +  // Misc Symbols
-                "\\x{1F600}-\\x{1F64F}" +  // 얼굴 이모지
-                "\\x{1F680}-\\x{1F6FF}" +  // 운송/지도
-                "\\x{1F700}-\\x{1F77F}" +  // Alchemical
-                "\\x{1F780}-\\x{1F7FF}" +  // Geometric
-                "\\x{1F800}-\\x{1F8FF}" +  // Supplemental arrows
-                "\\x{1F900}-\\x{1F9FF}" +  // Supplemental symbols and pictographs
-                "\\x{1FA00}-\\x{1FA6F}" +  // Chess symbols
-                "\\x{1FA70}-\\x{1FAFF}" +  // Extended A
-                "\\x{1FB00}-\\x{1FBFF}" +  // Extended B
-                "\\x{FE0F}" +              // Variation Selector-16
-                "]", "");
+    // * mariadb
+    //   - charset: utf-8
+    //   - collate: utf8-general-ci
+    // 에서는 3바이트 까지만 저장 가능하므로
+    // 4바이트 이상 문자는 제거한다
+    public static String remove4ByteChars(String str) {
+        if (str == null) return null;
+
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < str.length(); ) {
+            int codePoint = str.codePointAt(i);
+
+            // U+0000 ~ U+FFFF : BMP (Basic Multilingual Plane) 영역까지만 허용 (UTF-8 최대 3바이트)
+            if (codePoint <= 0xFFFF) {
+                System.out.println("codePoint 포함 = " + codePoint);
+                sb.appendCodePoint(codePoint);
+            } else {
+                System.err.println("codePoint 제거 = " + codePoint);
+            }
+
+            i += Character.charCount(codePoint);
+        }
+
+        return sb.toString();
     }
 }
