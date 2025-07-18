@@ -20,15 +20,21 @@ class Db1NoticeRepository_test {
     @Commit
     @Test
     void testDb1() {
+
+        String emoji3Bytes = "DB 공지사항 😀😂😍😢😎 이모지 테스트"; // 3바이트 이모지
+        String emoji4Bytes = "DB 공지사항 👨‍👩‍👧‍👦🧑🏽🧑‍💻🏳️‍🌈🧑‍ 이모지 테스트"; // 4바이트 이모지
+
+        String str = emoji3Bytes;
+
         // given
         NoticeEntity noticeEntity = new NoticeEntity();
-        noticeEntity.setNoticeTitle("DB1 공지사항");
+        noticeEntity.setNoticeTitle(str);
 
         // when
         NoticeEntity savedNoticeEntity = db1NoticeRepository.save(noticeEntity);
 
         // then
         assertThat(savedNoticeEntity.getNoticeId()).isNotNull();
-        assertThat(savedNoticeEntity.getNoticeTitle()).isEqualTo("DB1 공지사항");
+        assertThat(savedNoticeEntity.getNoticeTitle()).isEqualTo(str);
     }
 }
