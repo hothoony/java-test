@@ -57,6 +57,7 @@ public class Mydb1Config {
 
         Map<String, String> vendorProperties = jpaProperties.getProperties();
 //        vendorProperties.put("hibernate.hbm2ddl.auto", jpaProperties.getHibernate().getDdlAuto());
+        System.out.println("vendorProperties = " + vendorProperties);
 
         return builder
                 .dataSource(dataSource)
