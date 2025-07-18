@@ -22,7 +22,7 @@ class Db2NoticeRepository_test {
     void testDb2() {
         // given
         NoticeEntity noticeEntity = new NoticeEntity();
-        noticeEntity.setNoticeTitle("DB1 공지사항");
+        noticeEntity.setNoticeTitle("DB2 공지사항");
 
         // when
         NoticeEntity savedNoticeEntity = db2NoticeRepository.save(noticeEntity);

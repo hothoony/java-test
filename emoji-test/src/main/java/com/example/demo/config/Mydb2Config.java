@@ -2,19 +2,20 @@ package com.example.demo.config;
 
 import jakarta.persistence.EntityManagerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.autoconfigure.orm.jpa.HibernateProperties;
+import org.springframework.boot.autoconfigure.orm.jpa.HibernateSettings;
+import org.springframework.boot.autoconfigure.orm.jpa.JpaProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
 
 import javax.sql.DataSource;
-import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
@@ -31,23 +32,33 @@ public class Mydb2Config {
         return DataSourceBuilder.create().build();
     }
 
+    @Bean(name = "mydb2JpaProperties")
+    @ConfigurationProperties(prefix = "mydb2.jpa")
+    public JpaProperties mydb2JpaProperties() {
+        return new JpaProperties();
+    }
+
+    @Bean(name = "mydb2HibernateProperties")
+    @ConfigurationProperties(prefix = "mydb2.jpa.hibernate")
+    public HibernateProperties mydb2HibernateProperties() {
+        return new HibernateProperties();
+    }
+
     @Bean(name = "mydb2EntityManagerFactory")
     public LocalContainerEntityManagerFactoryBean mydb2EntityManagerFactory(
             EntityManagerFactoryBuilder builder,
-            @Qualifier("mydb2DataSource") DataSource dataSource) {
+            @Qualifier("mydb2DataSource") DataSource dataSource,
+            @Qualifier("mydb2JpaProperties") JpaProperties jpaProperties,
+            @Qualifier("mydb2HibernateProperties") HibernateProperties hibernateProperties) {
 
-        Map<String, Object> properties = new HashMap<>();
-        properties.put("hibernate.hbm2ddl.auto", "create");
-        properties.put("hibernate.dialect", "org.hibernate.dialect.MariaDBDialect");
-        properties.put("hibernate.format_sql", true);
-        properties.put("hibernate.use_sql_comments", false);
-        properties.put("hibernate.show_sql", false);
+        Map<String, Object> vendorProperties = hibernateProperties.determineHibernateProperties(
+                jpaProperties.getProperties(), new HibernateSettings());
 
         return builder
                 .dataSource(dataSource)
                 .packages("com.example.demo.domain")
                 .persistenceUnit("mydb2")
-                .properties(properties)
+                .properties(vendorProperties)
                 .build();
     }
 
