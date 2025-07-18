@@ -47,7 +47,7 @@ public class Mydb1Config {
 
         return builder
                 .dataSource(dataSource)
-                .packages("com.example.entity")
+                .packages("com.example.demo.domain")
                 .persistenceUnit("mydb1")
                 .properties(properties)
                 .build();
