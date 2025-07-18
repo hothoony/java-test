@@ -1,8 +1,8 @@
 package com.example.demo.repository;
 
 import com.example.demo.domain.NoticeEntity;
-import com.example.demo.repository.db1.NoticeDb1Repository;
-import com.example.demo.repository.db2.NoticeDb2Repository;
+import com.example.demo.repository.db1.Db1NoticeRepository;
+import com.example.demo.repository.db2.Db2NoticeRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,10 +14,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 class MultiDbNoticeRepositoryTests {
 
     @Autowired
-    private NoticeDb1Repository noticeDb1Repository;
+    private Db1NoticeRepository db1NoticeRepository;
 
     @Autowired
-    private NoticeDb2Repository noticeDb2Repository;
+    private Db2NoticeRepository db2NoticeRepository;
 
     @Test
     @Transactional
@@ -27,7 +27,7 @@ class MultiDbNoticeRepositoryTests {
         notice.setNoticeTitle("DB1 공지사항");
 
         // when
-        NoticeEntity savedNotice = noticeDb1Repository.save(notice);
+        NoticeEntity savedNotice = db1NoticeRepository.save(notice);
 
         // then
         assertThat(savedNotice.getNoticeId()).isNotNull();
@@ -42,7 +42,7 @@ class MultiDbNoticeRepositoryTests {
         notice.setNoticeTitle("DB2 공지사항");
 
         // when
-        NoticeEntity savedNotice = noticeDb2Repository.save(notice);
+        NoticeEntity savedNotice = db2NoticeRepository.save(notice);
 
         // then
         assertThat(savedNotice.getNoticeId()).isNotNull();
@@ -60,8 +60,8 @@ class MultiDbNoticeRepositoryTests {
         notice2.setNoticeTitle("DB2 공지사항");
 
         // when
-        NoticeEntity savedNotice1 = noticeDb1Repository.save(notice1);
-        NoticeEntity savedNotice2 = noticeDb2Repository.save(notice2);
+        NoticeEntity savedNotice1 = db1NoticeRepository.save(notice1);
+        NoticeEntity savedNotice2 = db2NoticeRepository.save(notice2);
 
         // then
         assertThat(savedNotice1.getNoticeId()).isNotNull();
