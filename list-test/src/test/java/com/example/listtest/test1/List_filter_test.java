@@ -14,24 +14,30 @@ public class List_filter_test {
         
         List<MemberDto> memberDtos = getMemberDtos();
 
-        String stdate = "20250916";
-        String endate = "20250930";
-        
-        LocalDate stDate = LocalDate.parse(stdate, DateTimeFormatter.ofPattern("yyyyMMdd"));
-        LocalDate enDate = LocalDate.parse(endate, DateTimeFormatter.ofPattern("yyyyMMdd"));
-        
-        memberDtos = memberDtos.stream()
-                .filter(m -> {
-                    LocalDate regDate = LocalDate.parse(m.getRegDt(), DateTimeFormatter.ofPattern("yyyyMMdd"));
-                    if (!regDate.isBefore(stDate) || !regDate.isAfter(enDate)) {
-                        return true;
-                    }
-                    return false;
-                }).toList();
+//        memberDtos = filterList(memberDtos, "20250916", "20250930");
+//        memberDtos = filterList(memberDtos, "20251030", "20251031");
+        memberDtos = filterList(memberDtos, "20250915", "20251015");
 
         for (MemberDto memberDto : memberDtos) {
             System.out.println("memberDto = " + toString(memberDto));
         }
+    }
+
+    private static List<MemberDto> filterList(List<MemberDto> memberDtos, String stdate, String endate) {
+        
+        LocalDate stDate = LocalDate.parse(stdate, DateTimeFormatter.ofPattern("yyyyMMdd"));
+        LocalDate enDate = LocalDate.parse(endate, DateTimeFormatter.ofPattern("yyyyMMdd"));
+
+        memberDtos = memberDtos.stream()
+                .filter(m -> {
+                    LocalDate regDate = LocalDate.parse(m.getRegDt(), DateTimeFormatter.ofPattern("yyyyMMdd"));
+                    if (!regDate.isBefore(stDate) && !regDate.isAfter(enDate)) {
+                        return true;
+                    }
+                    return false;
+                }).toList();
+        
+        return memberDtos;
     }
 
     private static List<MemberDto> getMemberDtos() {
