@@ -1,5 +1,6 @@
 package com.example.listtest.test1;
 
+import com.example.listtest.dto.MemberDto;
 import lombok.Data;
 import org.junit.jupiter.api.Test;
 
@@ -40,19 +41,6 @@ public class ListTest {
         System.out.println();
         for (MemberDto memberDto : memberList) {
             System.out.println("memberDto = " + memberDto);
-        }
-    }
-
-    @Data
-    static public class MemberDto {
-        private Long memberId;
-        private String memberNm;
-        private String memberEmail;
-        private String memberNickname;
-        private String mobilePhone;
-
-        public MemberDto(String memberNm) {
-            this.memberNm = memberNm;
         }
     }
 }
